@@ -2,14 +2,21 @@ const initSqlJs = require('sql.js');
 const fs = require('fs');
 const path = require('path');
 
-const DB_DIR = path.join(process.cwd(), 'data');
+const isVercel = Boolean(process.env.VERCEL);
+const DB_DIR = isVercel
+  ? path.join('/tmp', 'bizpilot-data')
+  : path.join(process.cwd(), 'data');
 const DB_PATH = path.join(DB_DIR, 'bizpilot.sqlite');
 
 let db = null;
 
 function ensureDirectoryExists() {
-  if (!fs.existsSync(DB_DIR)) {
-    fs.mkdirSync(DB_DIR, { recursive: true });
+  try {
+    if (!fs.existsSync(DB_DIR)) {
+      fs.mkdirSync(DB_DIR, { recursive: true });
+    }
+  } catch (err) {
+    console.warn('[BizPilot] Warning: failed to create DB directory:', err.message);
   }
 }
 
@@ -18,6 +25,16 @@ async function getDb() {
 
   ensureDirectoryExists();
   const SQL = await initSqlJs();
+
+  // If on Vercel, copy pre-seeded database from repo data directory if available
+  const repoDbPath = path.join(process.cwd(), 'data', 'bizpilot.sqlite');
+  if (isVercel && !fs.existsSync(DB_PATH) && fs.existsSync(repoDbPath)) {
+    try {
+      fs.copyFileSync(repoDbPath, DB_PATH);
+    } catch (e) {
+      console.warn('[BizPilot] Could not copy seed DB to /tmp:', e.message);
+    }
+  }
 
   if (fs.existsSync(DB_PATH)) {
     const fileBuffer = fs.readFileSync(DB_PATH);
@@ -36,10 +53,14 @@ async function getDb() {
 
 function saveDb() {
   if (!db) return;
-  ensureDirectoryExists();
-  const data = db.export();
-  const buffer = Buffer.from(data);
-  fs.writeFileSync(DB_PATH, buffer);
+  try {
+    ensureDirectoryExists();
+    const data = db.export();
+    const buffer = Buffer.from(data);
+    fs.writeFileSync(DB_PATH, buffer);
+  } catch (err) {
+    console.warn('[BizPilot] Warning: failed to save SQLite file:', err.message);
+  }
 }
 
 function initSchema(database) {
