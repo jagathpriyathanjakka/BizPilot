@@ -75,13 +75,13 @@ router.post('/signup', validate(signUpSchema), async (req, res) => {
 // POST /api/auth/verify - Validate 6-digit email code
 router.post('/verify', async (req, res) => {
   try {
-    const { email, code } = req.body;
+    const { email, code } = req.body || {};
     if (!email || !code) {
       return res.status(400).json({ error: 'Email and 6-digit verification code are required' });
     }
 
     const db = await getDb();
-    const cleanEmail = email.toLowerCase().trim();
+    const cleanEmail = String(email).toLowerCase().trim();
     const record = queryOne(
       db,
       'SELECT * FROM user_verifications WHERE LOWER(email) = ?',
@@ -89,10 +89,10 @@ router.post('/verify', async (req, res) => {
     );
 
     if (!record) {
-      return res.status(404).json({ error: 'No verification record found for this email' });
+      return res.status(404).json({ error: 'No verification record found for this email. Please sign up or click Resend Code.' });
     }
 
-    if (record.code !== code.trim()) {
+    if (record.code !== String(code).trim()) {
       return res.status(400).json({ error: 'Invalid 6-digit verification code. Please check and try again.' });
     }
 
@@ -149,23 +149,23 @@ router.post('/verify', async (req, res) => {
     });
   } catch (err) {
     console.error('Verify error:', err);
-    res.status(500).json({ error: 'Verification failed' });
+    res.status(500).json({ error: err.message || 'Verification failed' });
   }
 });
 
 // POST /api/auth/resend-code
 router.post('/resend-code', async (req, res) => {
   try {
-    const { email } = req.body;
-    if (!email) {
-      return res.status(400).json({ error: 'Email is required' });
+    const { email } = req.body || {};
+    if (!email || !String(email).trim()) {
+      return res.status(400).json({ error: 'Please enter a valid email address.' });
     }
 
     const db = await getDb();
-    const cleanEmail = email.toLowerCase().trim();
+    const cleanEmail = String(email).toLowerCase().trim();
     const user = queryOne(db, 'SELECT * FROM users WHERE LOWER(email) = ?', [cleanEmail]);
     if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+      return res.status(404).json({ error: `No registered account found for "${cleanEmail}". Please create an account on Sign Up first.` });
     }
 
     const newCode = generateVerificationCode();
@@ -185,7 +185,7 @@ router.post('/resend-code', async (req, res) => {
     });
   } catch (err) {
     console.error('Resend code error:', err);
-    res.status(500).json({ error: 'Failed to resend code' });
+    res.status(500).json({ error: err.message || 'Failed to resend code' });
   }
 });
 

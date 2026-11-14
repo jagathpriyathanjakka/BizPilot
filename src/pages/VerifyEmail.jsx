@@ -19,16 +19,20 @@ export default function VerifyEmailPage() {
 
   const handleVerify = async (e) => {
     e.preventDefault();
-    if (!email || !code.trim()) {
+    const cleanEmail = email.trim();
+    const cleanCode = code.trim();
+
+    if (!cleanEmail || !cleanCode) {
       setError('Please enter your email and 6-digit verification code');
       return;
     }
 
     setLoading(true);
     setError('');
+    setSuccessMsg('');
 
     try {
-      const res = await api.verifyEmail({ email, code: code.trim() });
+      const res = await api.verifyEmail({ email: cleanEmail, code: cleanCode });
       if (res.token) {
         setToken(res.token);
       }
@@ -39,7 +43,7 @@ export default function VerifyEmailPage() {
         } else {
           navigate('/onboarding');
         }
-      }, 1000);
+      }, 800);
     } catch (err) {
       setError(err.message || 'Verification failed');
     } finally {
@@ -48,15 +52,17 @@ export default function VerifyEmailPage() {
   };
 
   const handleResend = async () => {
-    if (!email) {
-      setError('Please provide your email address to resend the code');
+    const cleanEmail = email.trim();
+    if (!cleanEmail) {
+      setError('Please provide your registered email address to resend the code');
       return;
     }
     setResending(true);
     setError('');
+    setSuccessMsg('');
     try {
-      const res = await api.resendVerificationCode({ email });
-      setSuccessMsg('A new verification code has been dispatched.');
+      const res = await api.resendVerificationCode({ email: cleanEmail });
+      setSuccessMsg(res.message || 'A new verification code has been dispatched.');
       if (res.demoCode) {
         setDemoCode(res.demoCode);
         setCode(res.demoCode);
@@ -66,6 +72,14 @@ export default function VerifyEmailPage() {
     } finally {
       setResending(false);
     }
+  };
+
+  const fillDemoCredentials = () => {
+    setEmail('owner@bizpilot.ai');
+    setCode('123456');
+    setDemoCode('123456');
+    setError('');
+    setSuccessMsg('');
   };
 
   return (
@@ -81,7 +95,7 @@ export default function VerifyEmailPage() {
           </div>
           <h2 className="text-2xl font-bold text-white tracking-tight">Verify Your Email Address</h2>
           <p className="text-xs text-slate-400">
-            Please enter the 6-digit confirmation code sent to <strong className="text-white">{email || 'your email'}</strong>
+            Please enter the 6-digit confirmation code sent to <strong className="text-white">{email.trim() || 'your email'}</strong>
           </p>
         </div>
 
@@ -100,26 +114,24 @@ export default function VerifyEmailPage() {
               </div>
             )}
 
-            {!emailFromUrl && (
-              <div>
-                <label className="text-slate-300 font-semibold block mb-1">Registered Email *</label>
-                <input
-                  required
-                  type="email"
-                  placeholder="name@business.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-violet-500 text-xs"
-                />
-              </div>
-            )}
+            <div>
+              <label className="text-slate-300 font-semibold block mb-1">Registered Email *</label>
+              <input
+                required
+                type="email"
+                placeholder="name@business.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-500 focus:outline-none focus:border-violet-500 text-xs"
+              />
+            </div>
 
             <div>
               <div className="flex items-center justify-between mb-1.5">
                 <label className="text-slate-300 font-semibold">6-Digit Code</label>
                 {demoCode && (
                   <span className="text-[10px] font-mono font-bold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">
-                    Code: {demoCode}
+                    Active Code: {demoCode}
                   </span>
                 )}
               </div>
@@ -144,16 +156,28 @@ export default function VerifyEmailPage() {
             </button>
           </form>
 
-          <div className="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+          {/* Quick Demo Verification Helper */}
+          <div className="mt-4 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-center text-[11px] text-slate-400">
+            <span>Demo: </span>
+            <button
+              type="button"
+              onClick={fillDemoCredentials}
+              className="text-cyan-400 font-mono hover:underline font-semibold"
+            >
+              Fill Demo Code (owner@bizpilot.ai / 123456)
+            </button>
+          </div>
+
+          <div className="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
             <span>Didn't receive the code?</span>
             <button
               type="button"
               disabled={resending}
               onClick={handleResend}
-              className="text-cyan-400 font-semibold hover:underline flex items-center gap-1"
+              className="text-cyan-400 font-semibold hover:underline flex items-center gap-1 disabled:opacity-50"
             >
               <RefreshCw className={`h-3 w-3 ${resending ? 'animate-spin' : ''}`} />
-              <span>Resend Code</span>
+              <span>{resending ? 'Resending...' : 'Resend Code'}</span>
             </button>
           </div>
 

@@ -1,14 +1,38 @@
 const initSqlJs = require('sql.js');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
 const isVercel = Boolean(process.env.VERCEL);
 const DB_DIR = isVercel
-  ? path.join('/tmp', 'bizpilot-data')
+  ? path.join(os.tmpdir(), 'bizpilot-data')
   : path.join(process.cwd(), 'data');
 const DB_PATH = path.join(DB_DIR, 'bizpilot.sqlite');
 
 let db = null;
+let wasmBinary = null;
+
+function getWasmBinary() {
+  if (wasmBinary) return wasmBinary;
+  const candidates = [
+    path.join(__dirname, 'sql-wasm.wasm'),
+    path.join(process.cwd(), 'backend', 'db', 'sql-wasm.wasm'),
+    path.join(process.cwd(), 'api', 'sql-wasm.wasm'),
+    path.join(process.cwd(), 'node_modules', 'sql.js', 'dist', 'sql-wasm.wasm'),
+    path.join(__dirname, '..', '..', 'node_modules', 'sql.js', 'dist', 'sql-wasm.wasm'),
+  ];
+  for (const c of candidates) {
+    try {
+      if (fs.existsSync(c)) {
+        wasmBinary = fs.readFileSync(c);
+        return wasmBinary;
+      }
+    } catch (e) {
+      // ignore read errors
+    }
+  }
+  return null;
+}
 
 function ensureDirectoryExists() {
   try {
@@ -24,7 +48,8 @@ async function getDb() {
   if (db) return db;
 
   ensureDirectoryExists();
-  const SQL = await initSqlJs();
+  const binary = getWasmBinary();
+  const SQL = await initSqlJs(binary ? { wasmBinary: binary } : {});
 
   // If on Vercel, copy pre-seeded database from repo data directory if available
   const repoDbPath = path.join(process.cwd(), 'data', 'bizpilot.sqlite');
