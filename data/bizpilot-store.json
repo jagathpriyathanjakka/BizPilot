@@ -1,0 +1,3879 @@
+{
+  "users": [
+    {
+      "id": "usr-demo-owner",
+      "email": "owner@bizpilot.ai",
+      "fullName": "Sunil Kumar",
+      "mobile": "+91 98765 43210",
+      "passwordHash": "$2a$10$wN10g8y2F6wFw7QyF7iQ3.Wj4v3oZf4KzE3A4R5D6E7F8G9H0I1J2",
+      "role": "owner",
+      "createdAt": "2026-11-14T05:21:01.271Z"
+    }
+  ],
+  "organizations": [
+    {
+      "id": "org-demo-1",
+      "name": "Om Enterprises Group",
+      "ownerId": "usr-demo-owner",
+      "currency": "INR",
+      "country": "India",
+      "activeBusinessId": "biz-medical-demo",
+      "createdAt": "2026-11-14T05:21:01.274Z"
+    }
+  ],
+  "businesses": [
+    {
+      "id": "biz-grocery-demo",
+      "orgId": "org-demo-1",
+      "name": "Shree Ganesh Supermarket & Kirana",
+      "ownerName": "Sunil Kumar",
+      "category": "grocery",
+      "businessType": "Supermarket",
+      "mobile": "+91 98765 43210",
+      "email": "contact@grocerybiz.com",
+      "address": "Shop No. 14, Commercial Plaza, M.G. Road",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "pincode": "400001",
+      "gstin": "27AAAAA0000A1Z5",
+      "currency": "INR",
+      "timezone": "Asia/Kolkata",
+      "operations": {
+        "sellsProducts": true,
+        "providesServices": false,
+        "managesInventory": true,
+        "hasEmployees": true,
+        "hasMultipleBranches": false,
+        "acceptsCash": true,
+        "acceptsUpi": true,
+        "acceptsCards": true,
+        "acceptsBankTransfer": true,
+        "offersDelivery": true,
+        "openingHours": "09:00 AM - 09:30 PM"
+      },
+      "onboardingComplete": true,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo",
+      "orgId": "org-demo-1",
+      "name": "Spice Route Dine & Cafe Bistro",
+      "ownerName": "Sunil Kumar",
+      "category": "food",
+      "businessType": "Dine-in Restaurant & Cafe",
+      "mobile": "+91 98765 43210",
+      "email": "contact@foodbiz.com",
+      "address": "Shop No. 14, Commercial Plaza, M.G. Road",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "pincode": "400001",
+      "gstin": "27AAAAA0000A1Z5",
+      "currency": "INR",
+      "timezone": "Asia/Kolkata",
+      "operations": {
+        "sellsProducts": true,
+        "providesServices": false,
+        "managesInventory": true,
+        "hasEmployees": true,
+        "hasMultipleBranches": false,
+        "acceptsCash": true,
+        "acceptsUpi": true,
+        "acceptsCards": true,
+        "acceptsBankTransfer": true,
+        "offersDelivery": true,
+        "openingHours": "09:00 AM - 09:30 PM"
+      },
+      "onboardingComplete": true,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo",
+      "orgId": "org-demo-1",
+      "name": "Vogue & Threads Men & Women Boutique",
+      "ownerName": "Sunil Kumar",
+      "category": "clothing",
+      "businessType": "Readymade Garments & Boutique",
+      "mobile": "+91 98765 43210",
+      "email": "contact@clothingbiz.com",
+      "address": "Shop No. 14, Commercial Plaza, M.G. Road",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "pincode": "400001",
+      "gstin": "27AAAAA0000A1Z5",
+      "currency": "INR",
+      "timezone": "Asia/Kolkata",
+      "operations": {
+        "sellsProducts": true,
+        "providesServices": false,
+        "managesInventory": true,
+        "hasEmployees": true,
+        "hasMultipleBranches": false,
+        "acceptsCash": true,
+        "acceptsUpi": true,
+        "acceptsCards": true,
+        "acceptsBankTransfer": true,
+        "offersDelivery": true,
+        "openingHours": "09:00 AM - 09:30 PM"
+      },
+      "onboardingComplete": true,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo",
+      "orgId": "org-demo-1",
+      "name": "TechZone Mobiles, Laptops & Care Center",
+      "ownerName": "Sunil Kumar",
+      "category": "electronics",
+      "businessType": "Mobile Phones, Electronics & Service Center",
+      "mobile": "+91 98765 43210",
+      "email": "contact@electronicsbiz.com",
+      "address": "Shop No. 14, Commercial Plaza, M.G. Road",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "pincode": "400001",
+      "gstin": "27AAAAA0000A1Z5",
+      "currency": "INR",
+      "timezone": "Asia/Kolkata",
+      "operations": {
+        "sellsProducts": true,
+        "providesServices": false,
+        "managesInventory": true,
+        "hasEmployees": true,
+        "hasMultipleBranches": false,
+        "acceptsCash": true,
+        "acceptsUpi": true,
+        "acceptsCards": true,
+        "acceptsBankTransfer": true,
+        "offersDelivery": true,
+        "openingHours": "09:00 AM - 09:30 PM"
+      },
+      "onboardingComplete": true,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo",
+      "orgId": "org-demo-1",
+      "name": "Luxe Aura Unisex Salon & Day Spa",
+      "ownerName": "Sunil Kumar",
+      "category": "salon",
+      "businessType": "Unisex Salon",
+      "mobile": "+91 98765 43210",
+      "email": "contact@salonbiz.com",
+      "address": "Shop No. 14, Commercial Plaza, M.G. Road",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "pincode": "400001",
+      "gstin": "27AAAAA0000A1Z5",
+      "currency": "INR",
+      "timezone": "Asia/Kolkata",
+      "operations": {
+        "sellsProducts": false,
+        "providesServices": true,
+        "managesInventory": false,
+        "hasEmployees": true,
+        "hasMultipleBranches": false,
+        "acceptsCash": true,
+        "acceptsUpi": true,
+        "acceptsCards": true,
+        "acceptsBankTransfer": true,
+        "offersDelivery": true,
+        "openingHours": "09:00 AM - 09:30 PM"
+      },
+      "onboardingComplete": true,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-medical-demo",
+      "orgId": "org-demo-1",
+      "name": "Apollo Care Chemist",
+      "ownerName": "Sunil Kumar",
+      "category": "medical",
+      "businessType": "Retail Pharmacy / Chemist",
+      "mobile": "+91 98765 43210",
+      "email": "contact@medicalbiz.com",
+      "address": "Shop No. 14, Commercial Plaza, M.G. Road",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "pincode": "400001",
+      "gstin": "27AAAAA0000A1Z5",
+      "currency": "INR",
+      "timezone": "Asia/Kolkata",
+      "operations": {
+        "sellsProducts": true,
+        "providesServices": false,
+        "managesInventory": true,
+        "hasEmployees": true,
+        "hasMultipleBranches": false,
+        "acceptsCash": true,
+        "acceptsUpi": true,
+        "acceptsCards": true,
+        "acceptsBankTransfer": true,
+        "offersDelivery": true,
+        "openingHours": "09:00 AM - 09:30 PM"
+      },
+      "onboardingComplete": true,
+      "createdAt": "2026-09-15T05:21:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo",
+      "orgId": "org-demo-1",
+      "name": "Apollo Care Chemist",
+      "ownerName": "Sunil Kumar",
+      "category": "medical",
+      "businessType": "Retail Pharmacy / Chemist",
+      "mobile": "+91 98765 43210",
+      "email": "contact@medicalbiz.com",
+      "address": "Shop No. 14, Commercial Plaza, M.G. Road",
+      "country": "India",
+      "state": "Maharashtra",
+      "city": "Mumbai",
+      "pincode": "400001",
+      "gstin": "27AAAAA0000A1Z5",
+      "currency": "INR",
+      "timezone": "Asia/Kolkata",
+      "operations": {
+        "sellsProducts": true,
+        "providesServices": false,
+        "managesInventory": true,
+        "hasEmployees": true,
+        "hasMultipleBranches": false,
+        "acceptsCash": true,
+        "acceptsUpi": true,
+        "acceptsCards": true,
+        "acceptsBankTransfer": true,
+        "offersDelivery": true,
+        "openingHours": "09:00 AM - 09:30 PM"
+      },
+      "onboardingComplete": true,
+      "createdAt": "2026-09-15T05:22:18.791Z"
+    }
+  ],
+  "products": [
+    {
+      "id": "biz-grocery-demo-p1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "Daawat Rozana Basmati Rice",
+      "barcode": "8901234001",
+      "sku": "GRO-RICE-05K",
+      "category": "Grains & Staples",
+      "brand": "Daawat",
+      "purchasePrice": 380,
+      "sellingPrice": 475,
+      "quantity": 45,
+      "unit": "packet",
+      "minStockLevel": 15,
+      "expiryDate": "2027-05-13",
+      "attributes": {
+        "batchNumber": "BCH-2024-R09"
+      },
+      "createdAt": "2026-10-15T05:21:01.275Z",
+      "updatedAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-grocery-demo-p2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "Fortune Sunlite Sunflower Oil 1L",
+      "barcode": "8901234002",
+      "sku": "GRO-OIL-01L",
+      "category": "Edible Oils",
+      "brand": "Fortune",
+      "purchasePrice": 122,
+      "sellingPrice": 145,
+      "quantity": 6,
+      "unit": "packet",
+      "minStockLevel": 12,
+      "expiryDate": "2027-03-14",
+      "attributes": {
+        "batchNumber": "OIL-993-B"
+      },
+      "createdAt": "2026-10-15T05:21:01.275Z",
+      "updatedAt": "2026-11-12T05:21:01.275Z"
+    },
+    {
+      "id": "biz-grocery-demo-p3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "Amul Taaza Toned Milk 500ml",
+      "barcode": "8901234003",
+      "sku": "GRO-MILK-500",
+      "category": "Dairy & Bakery",
+      "brand": "Amul",
+      "purchasePrice": 24,
+      "sellingPrice": 28,
+      "quantity": 2,
+      "unit": "packet",
+      "minStockLevel": 20,
+      "expiryDate": "2026-11-16",
+      "attributes": {
+        "batchNumber": "AML-0442"
+      },
+      "createdAt": "2026-11-12T05:21:01.275Z",
+      "updatedAt": "2026-11-14T05:21:01.275Z"
+    },
+    {
+      "id": "biz-grocery-demo-p4",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "Aashirvaad Shudh Chakki Atta 10kg",
+      "barcode": "8901234004",
+      "sku": "GRO-ATTA-10K",
+      "category": "Grains & Staples",
+      "brand": "Aashirvaad",
+      "purchasePrice": 410,
+      "sellingPrice": 490,
+      "quantity": 28,
+      "unit": "packet",
+      "minStockLevel": 10,
+      "expiryDate": "2027-02-12",
+      "attributes": {
+        "batchNumber": "ITC-ATT-88"
+      },
+      "createdAt": "2026-10-20T05:21:01.275Z",
+      "updatedAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-grocery-demo-p5",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "Tata Salt Vacuum Evaporated 1kg",
+      "barcode": "8901234005",
+      "sku": "GRO-SALT-01K",
+      "category": "Spices & Essentials",
+      "brand": "Tata Salt",
+      "purchasePrice": 22,
+      "sellingPrice": 28,
+      "quantity": 60,
+      "unit": "packet",
+      "minStockLevel": 25,
+      "expiryDate": "2027-11-14",
+      "attributes": {
+        "batchNumber": "TS-2024"
+      },
+      "createdAt": "2026-10-05T05:21:01.275Z",
+      "updatedAt": "2026-11-09T05:21:01.275Z"
+    },
+    {
+      "id": "biz-grocery-demo-p6",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "Maggi 2-Minute Masala Noodles 4-Pack",
+      "barcode": "8901234006",
+      "sku": "GRO-MAGG-04P",
+      "category": "Snacks & Packaged Food",
+      "brand": "Nestle",
+      "purchasePrice": 52,
+      "sellingPrice": 60,
+      "quantity": 0,
+      "unit": "packet",
+      "minStockLevel": 15,
+      "expiryDate": "2027-04-13",
+      "attributes": {
+        "batchNumber": "NES-MG-41"
+      },
+      "createdAt": "2026-10-05T05:21:01.275Z",
+      "updatedAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-p1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "name": "Paneer Butter Masala Special",
+      "sku": "FOD-PBM-01",
+      "category": "Main Course (Curries)",
+      "purchasePrice": 95,
+      "sellingPrice": 280,
+      "quantity": 100,
+      "unit": "portion",
+      "minStockLevel": 10,
+      "attributes": {
+        "ingredients": [
+          {
+            "name": "Fresh Malai Paneer",
+            "quantity": "200g"
+          },
+          {
+            "name": "Butter & Cream",
+            "quantity": "40g"
+          },
+          {
+            "name": "Rich Cashew Tomato Gravy",
+            "quantity": "250ml"
+          }
+        ]
+      },
+      "createdAt": "2026-10-15T05:21:01.275Z",
+      "updatedAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-p2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "name": "Dum Handi Chicken Biryani",
+      "sku": "FOD-BRY-CHK",
+      "category": "Biryani & Rice",
+      "purchasePrice": 130,
+      "sellingPrice": 340,
+      "quantity": 80,
+      "unit": "portion",
+      "minStockLevel": 15,
+      "attributes": {
+        "ingredients": [
+          {
+            "name": "Marinated Tender Chicken",
+            "quantity": "250g"
+          },
+          {
+            "name": "Aged Basmati Rice",
+            "quantity": "200g"
+          },
+          {
+            "name": "Saffron Milk & Spices",
+            "quantity": "10g"
+          }
+        ]
+      },
+      "createdAt": "2026-10-15T05:21:01.275Z",
+      "updatedAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-p3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "name": "Artisan Hazelnut Cold Coffee",
+      "sku": "FOD-BEV-CFE",
+      "category": "Beverages & Mocktails",
+      "purchasePrice": 40,
+      "sellingPrice": 160,
+      "quantity": 120,
+      "unit": "cup",
+      "minStockLevel": 20,
+      "attributes": {},
+      "createdAt": "2026-10-15T05:21:01.275Z",
+      "updatedAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-p1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "name": "Slim Fit Cotton Casual Shirt (Sky Blue - Size 40)",
+      "sku": "CLO-SHIRT-BLU-40",
+      "category": "Men's Apparel",
+      "brand": "Vogue Classics",
+      "purchasePrice": 550,
+      "sellingPrice": 1199,
+      "quantity": 14,
+      "unit": "piece",
+      "minStockLevel": 5,
+      "attributes": {
+        "size": "40 (M)",
+        "color": "Sky Blue",
+        "material": "100% Combed Cotton"
+      },
+      "createdAt": "2026-10-15T05:21:01.275Z",
+      "updatedAt": "2026-11-12T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-p2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "name": "Chanderi Silk Anarkali Kurta Set with Dupatta (Teal - Size L)",
+      "sku": "CLO-KURTA-TEA-L",
+      "category": "Women's Ethnic",
+      "brand": "Riwaaz Designer",
+      "purchasePrice": 1450,
+      "sellingPrice": 2899,
+      "quantity": 6,
+      "unit": "set",
+      "minStockLevel": 3,
+      "attributes": {
+        "size": "L",
+        "color": "Teal Green",
+        "material": "Chanderi Silk"
+      },
+      "createdAt": "2026-10-25T05:21:01.275Z",
+      "updatedAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-p3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "name": "Comfort Fit Stretch Denim Jeans (Dark Indigo - Size 32)",
+      "sku": "CLO-JEANS-IND-32",
+      "category": "Men's Apparel",
+      "brand": "DenimCraft",
+      "purchasePrice": 780,
+      "sellingPrice": 1699,
+      "quantity": 19,
+      "unit": "piece",
+      "minStockLevel": 6,
+      "attributes": {
+        "size": "32",
+        "color": "Dark Indigo",
+        "material": "Cotton Elastane Denim"
+      },
+      "createdAt": "2026-10-05T05:21:01.275Z",
+      "updatedAt": "2026-11-11T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-p1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "name": "Samsung Galaxy A35 5G (8GB RAM, 128GB - Awesome Navy)",
+      "barcode": "880609123456",
+      "sku": "ELEC-SAM-A35",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "purchasePrice": 24500,
+      "sellingPrice": 27999,
+      "quantity": 7,
+      "unit": "piece",
+      "minStockLevel": 3,
+      "attributes": {
+        "serialImei": "358921098492019",
+        "warrantyMonths": 12
+      },
+      "createdAt": "2026-10-20T05:21:01.275Z",
+      "updatedAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-p2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "name": "Apple 20W USB-C Power Adapter (Original)",
+      "barcode": "194252157022",
+      "sku": "ELEC-APL-20W",
+      "category": "Accessories & Chargers",
+      "brand": "Apple",
+      "purchasePrice": 1450,
+      "sellingPrice": 1900,
+      "quantity": 22,
+      "unit": "piece",
+      "minStockLevel": 8,
+      "attributes": {
+        "warrantyMonths": 12
+      },
+      "createdAt": "2026-10-15T05:21:01.275Z",
+      "updatedAt": "2026-11-11T05:21:01.275Z"
+    },
+    {
+      "id": "biz-medical-demo-p1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Augmentin 625 Duo Tablet (Strip of 10)",
+      "barcode": "8905001001",
+      "sku": "MED-AUG-625",
+      "category": "Antibiotics",
+      "brand": "GSK",
+      "purchasePrice": 168,
+      "sellingPrice": 201,
+      "quantity": 20,
+      "unit": "strip",
+      "minStockLevel": 10,
+      "expiryDate": "2027-06-12",
+      "attributes": {
+        "batchNumber": "AGM-492",
+        "genericName": "Amoxycillin (500mg) + Clavulanic Acid (125mg)",
+        "dosage": "Oral BD",
+        "prescriptionRequired": true
+      },
+      "createdAt": "2026-09-25T05:21:01.280Z",
+      "updatedAt": "2026-11-14T05:22:18.796Z"
+    },
+    {
+      "id": "biz-medical-demo-p2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Dolo 650mg Tablet (Strip of 15)",
+      "barcode": "8905001002",
+      "sku": "MED-DOLO-650",
+      "category": "Analgesics & Antipyretic",
+      "brand": "Micro Labs",
+      "purchasePrice": 25,
+      "sellingPrice": 33,
+      "quantity": 110,
+      "unit": "strip",
+      "minStockLevel": 30,
+      "expiryDate": "2027-11-14",
+      "attributes": {
+        "batchNumber": "DL-8812",
+        "genericName": "Paracetamol 650mg",
+        "dosage": "SOS after food",
+        "prescriptionRequired": false
+      },
+      "createdAt": "2026-09-15T05:21:01.280Z",
+      "updatedAt": "2026-11-12T05:21:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-p3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Pan 40 Tablet (Strip of 15)",
+      "barcode": "8905001003",
+      "sku": "MED-PAN-40",
+      "category": "Gastrointestinal",
+      "brand": "Alkem Laboratories",
+      "purchasePrice": 115,
+      "sellingPrice": 155,
+      "quantity": 5,
+      "unit": "strip",
+      "minStockLevel": 15,
+      "expiryDate": "2026-12-29",
+      "attributes": {
+        "batchNumber": "PN-0941",
+        "genericName": "Pantoprazole Gastro-resistant 40mg",
+        "prescriptionRequired": true
+      },
+      "createdAt": "2026-10-10T05:21:01.280Z",
+      "updatedAt": "2026-11-13T05:21:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-p1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Augmentin 625 Duo Tablet (Strip of 10)",
+      "barcode": "8905001001",
+      "sku": "MED-AUG-625",
+      "category": "Antibiotics",
+      "brand": "GSK",
+      "purchasePrice": 168,
+      "sellingPrice": 201,
+      "quantity": 24,
+      "unit": "strip",
+      "minStockLevel": 10,
+      "expiryDate": "2027-06-12",
+      "attributes": {
+        "batchNumber": "AGM-492",
+        "genericName": "Amoxycillin (500mg) + Clavulanic Acid (125mg)",
+        "dosage": "Oral BD",
+        "prescriptionRequired": true
+      },
+      "createdAt": "2026-09-25T05:22:18.791Z",
+      "updatedAt": "2026-11-13T05:22:18.791Z"
+    },
+    {
+      "id": "biz-medical-demo-p2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Dolo 650mg Tablet (Strip of 15)",
+      "barcode": "8905001002",
+      "sku": "MED-DOLO-650",
+      "category": "Analgesics & Antipyretic",
+      "brand": "Micro Labs",
+      "purchasePrice": 25,
+      "sellingPrice": 33,
+      "quantity": 110,
+      "unit": "strip",
+      "minStockLevel": 30,
+      "expiryDate": "2027-11-14",
+      "attributes": {
+        "batchNumber": "DL-8812",
+        "genericName": "Paracetamol 650mg",
+        "dosage": "SOS after food",
+        "prescriptionRequired": false
+      },
+      "createdAt": "2026-09-15T05:22:18.791Z",
+      "updatedAt": "2026-11-12T05:22:18.791Z"
+    },
+    {
+      "id": "biz-medical-demo-p3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Pan 40 Tablet (Strip of 15)",
+      "barcode": "8905001003",
+      "sku": "MED-PAN-40",
+      "category": "Gastrointestinal",
+      "brand": "Alkem Laboratories",
+      "purchasePrice": 115,
+      "sellingPrice": 155,
+      "quantity": 5,
+      "unit": "strip",
+      "minStockLevel": 15,
+      "expiryDate": "2026-12-29",
+      "attributes": {
+        "batchNumber": "PN-0941",
+        "genericName": "Pantoprazole Gastro-resistant 40mg",
+        "prescriptionRequired": true
+      },
+      "createdAt": "2026-10-10T05:22:18.791Z",
+      "updatedAt": "2026-11-13T05:22:18.791Z"
+    }
+  ],
+  "services": [
+    {
+      "id": "biz-salon-demo-s1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "name": "Classic Haircut + Beard Styling + Head Massage",
+      "category": "Men's Grooming",
+      "price": 499,
+      "durationMinutes": 45,
+      "targetGender": "men",
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-s2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "name": "O3+ Bridal Glow Facial & De-Tan Spa",
+      "category": "Skincare & Facials",
+      "price": 1899,
+      "durationMinutes": 75,
+      "targetGender": "women",
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-s3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "name": "Keratin Hair Smoothening Treatment",
+      "category": "Hair Treatments",
+      "price": 3999,
+      "durationMinutes": 150,
+      "targetGender": "unisex",
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    }
+  ],
+  "customers": [
+    {
+      "id": "biz-grocery-demo-c1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "Ramesh Sharma",
+      "mobile": "+91 98201 12345",
+      "email": "ramesh.sharma@gmail.com",
+      "address": "B-201, Shanti Niketan, Andheri East, Mumbai",
+      "totalSpent": 14850,
+      "outstandingBalance": 0,
+      "tags": [
+        "Regular",
+        "Loyal Customer"
+      ],
+      "notes": "Prefers UPI payment",
+      "createdAt": "2026-09-30T05:21:01.275Z"
+    },
+    {
+      "id": "biz-grocery-demo-c2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "Anita Desai",
+      "mobile": "+91 98192 67890",
+      "email": "anita.desai@yahoo.com",
+      "address": "Flat 12, Sunrise Apts, Bandra West",
+      "totalSpent": 8640,
+      "outstandingBalance": 450,
+      "tags": [
+        "Credit Account",
+        "Family Account"
+      ],
+      "notes": "Pending balance 450 from last delivery",
+      "createdAt": "2026-10-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-grocery-demo-c3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "Vikram Patel",
+      "mobile": "+91 97690 11223",
+      "address": "Sector 4, Vashi, Navi Mumbai",
+      "totalSpent": 22400,
+      "outstandingBalance": 0,
+      "tags": [
+        "Wholesale Buyer"
+      ],
+      "createdAt": "2026-09-25T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-c1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "name": "Ramesh Sharma",
+      "mobile": "+91 98201 12345",
+      "email": "ramesh.sharma@gmail.com",
+      "address": "B-201, Shanti Niketan, Andheri East, Mumbai",
+      "totalSpent": 14850,
+      "outstandingBalance": 0,
+      "tags": [
+        "Regular",
+        "Loyal Customer"
+      ],
+      "notes": "Prefers UPI payment",
+      "createdAt": "2026-09-30T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-c2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "name": "Anita Desai",
+      "mobile": "+91 98192 67890",
+      "email": "anita.desai@yahoo.com",
+      "address": "Flat 12, Sunrise Apts, Bandra West",
+      "totalSpent": 8640,
+      "outstandingBalance": 450,
+      "tags": [
+        "Credit Account",
+        "Family Account"
+      ],
+      "notes": "Pending balance 450 from last delivery",
+      "createdAt": "2026-10-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-c3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "name": "Vikram Patel",
+      "mobile": "+91 97690 11223",
+      "address": "Sector 4, Vashi, Navi Mumbai",
+      "totalSpent": 22400,
+      "outstandingBalance": 0,
+      "tags": [
+        "Wholesale Buyer"
+      ],
+      "createdAt": "2026-09-25T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-c1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "name": "Ramesh Sharma",
+      "mobile": "+91 98201 12345",
+      "email": "ramesh.sharma@gmail.com",
+      "address": "B-201, Shanti Niketan, Andheri East, Mumbai",
+      "totalSpent": 14850,
+      "outstandingBalance": 0,
+      "tags": [
+        "Regular",
+        "Loyal Customer"
+      ],
+      "notes": "Prefers UPI payment",
+      "createdAt": "2026-09-30T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-c2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "name": "Anita Desai",
+      "mobile": "+91 98192 67890",
+      "email": "anita.desai@yahoo.com",
+      "address": "Flat 12, Sunrise Apts, Bandra West",
+      "totalSpent": 8640,
+      "outstandingBalance": 450,
+      "tags": [
+        "Credit Account",
+        "Family Account"
+      ],
+      "notes": "Pending balance 450 from last delivery",
+      "createdAt": "2026-10-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-c3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "name": "Vikram Patel",
+      "mobile": "+91 97690 11223",
+      "address": "Sector 4, Vashi, Navi Mumbai",
+      "totalSpent": 22400,
+      "outstandingBalance": 0,
+      "tags": [
+        "Wholesale Buyer"
+      ],
+      "createdAt": "2026-09-25T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-c1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "name": "Ramesh Sharma",
+      "mobile": "+91 98201 12345",
+      "email": "ramesh.sharma@gmail.com",
+      "address": "B-201, Shanti Niketan, Andheri East, Mumbai",
+      "totalSpent": 14850,
+      "outstandingBalance": 0,
+      "tags": [
+        "Regular",
+        "Loyal Customer"
+      ],
+      "notes": "Prefers UPI payment",
+      "createdAt": "2026-09-30T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-c2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "name": "Anita Desai",
+      "mobile": "+91 98192 67890",
+      "email": "anita.desai@yahoo.com",
+      "address": "Flat 12, Sunrise Apts, Bandra West",
+      "totalSpent": 8640,
+      "outstandingBalance": 450,
+      "tags": [
+        "Credit Account",
+        "Family Account"
+      ],
+      "notes": "Pending balance 450 from last delivery",
+      "createdAt": "2026-10-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-c3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "name": "Vikram Patel",
+      "mobile": "+91 97690 11223",
+      "address": "Sector 4, Vashi, Navi Mumbai",
+      "totalSpent": 22400,
+      "outstandingBalance": 0,
+      "tags": [
+        "Wholesale Buyer"
+      ],
+      "createdAt": "2026-09-25T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-c1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "name": "Ramesh Sharma",
+      "mobile": "+91 98201 12345",
+      "email": "ramesh.sharma@gmail.com",
+      "address": "B-201, Shanti Niketan, Andheri East, Mumbai",
+      "totalSpent": 14850,
+      "outstandingBalance": 0,
+      "tags": [
+        "Regular",
+        "Loyal Customer"
+      ],
+      "notes": "Prefers UPI payment",
+      "createdAt": "2026-09-30T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-c2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "name": "Anita Desai",
+      "mobile": "+91 98192 67890",
+      "email": "anita.desai@yahoo.com",
+      "address": "Flat 12, Sunrise Apts, Bandra West",
+      "totalSpent": 8640,
+      "outstandingBalance": 450,
+      "tags": [
+        "Credit Account",
+        "Family Account"
+      ],
+      "notes": "Pending balance 450 from last delivery",
+      "createdAt": "2026-10-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-c3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "name": "Vikram Patel",
+      "mobile": "+91 97690 11223",
+      "address": "Sector 4, Vashi, Navi Mumbai",
+      "totalSpent": 22400,
+      "outstandingBalance": 0,
+      "tags": [
+        "Wholesale Buyer"
+      ],
+      "createdAt": "2026-09-25T05:21:01.275Z"
+    },
+    {
+      "id": "biz-medical-demo-c1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Ramesh Sharma",
+      "mobile": "+91 98201 12345",
+      "email": "ramesh.sharma@gmail.com",
+      "address": "B-201, Shanti Niketan, Andheri East, Mumbai",
+      "totalSpent": 14850,
+      "outstandingBalance": 0,
+      "tags": [
+        "Regular",
+        "Loyal Customer"
+      ],
+      "notes": "Prefers UPI payment",
+      "createdAt": "2026-09-30T05:21:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-c2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Anita Desai",
+      "mobile": "+91 98192 67890",
+      "email": "anita.desai@yahoo.com",
+      "address": "Flat 12, Sunrise Apts, Bandra West",
+      "totalSpent": 8640,
+      "outstandingBalance": 450,
+      "tags": [
+        "Credit Account",
+        "Family Account"
+      ],
+      "notes": "Pending balance 450 from last delivery",
+      "createdAt": "2026-10-15T05:21:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-c3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Vikram Patel",
+      "mobile": "+91 97690 11223",
+      "address": "Sector 4, Vashi, Navi Mumbai",
+      "totalSpent": 22400,
+      "outstandingBalance": 0,
+      "tags": [
+        "Wholesale Buyer"
+      ],
+      "createdAt": "2026-09-25T05:21:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-c1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Ramesh Sharma",
+      "mobile": "+91 98201 12345",
+      "email": "ramesh.sharma@gmail.com",
+      "address": "B-201, Shanti Niketan, Andheri East, Mumbai",
+      "totalSpent": 14850,
+      "outstandingBalance": 0,
+      "tags": [
+        "Regular",
+        "Loyal Customer"
+      ],
+      "notes": "Prefers UPI payment",
+      "createdAt": "2026-09-30T05:22:18.791Z"
+    },
+    {
+      "id": "biz-medical-demo-c2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Anita Desai",
+      "mobile": "+91 98192 67890",
+      "email": "anita.desai@yahoo.com",
+      "address": "Flat 12, Sunrise Apts, Bandra West",
+      "totalSpent": 8640,
+      "outstandingBalance": 450,
+      "tags": [
+        "Credit Account",
+        "Family Account"
+      ],
+      "notes": "Pending balance 450 from last delivery",
+      "createdAt": "2026-10-15T05:22:18.791Z"
+    },
+    {
+      "id": "biz-medical-demo-c3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Vikram Patel",
+      "mobile": "+91 97690 11223",
+      "address": "Sector 4, Vashi, Navi Mumbai",
+      "totalSpent": 22400,
+      "outstandingBalance": 0,
+      "tags": [
+        "Wholesale Buyer"
+      ],
+      "createdAt": "2026-09-25T05:22:18.791Z"
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "biz-grocery-demo-sup-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "National Wholesale Distributors Pvt Ltd",
+      "contactPerson": "Harish Mehta",
+      "mobile": "+91 98210 55443",
+      "email": "orders@nationaldist.com",
+      "companyName": "National Wholesale Distributors",
+      "gstin": "27AABCN8831Q1ZS",
+      "paymentTerms": "Net 15 Days",
+      "rating": 4.8,
+      "balanceOwed": 14500,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-grocery-demo-sup-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "Prime Goods Logistics & Supply",
+      "contactPerson": "Suresh Patil",
+      "mobile": "+91 98920 33221",
+      "email": "supply@primegoods.in",
+      "companyName": "Prime Goods Logistics",
+      "paymentTerms": "Immediate UPI on Delivery",
+      "rating": 4.5,
+      "balanceOwed": 0,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-sup-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "name": "National Wholesale Distributors Pvt Ltd",
+      "contactPerson": "Harish Mehta",
+      "mobile": "+91 98210 55443",
+      "email": "orders@nationaldist.com",
+      "companyName": "National Wholesale Distributors",
+      "gstin": "27AABCN8831Q1ZS",
+      "paymentTerms": "Net 15 Days",
+      "rating": 4.8,
+      "balanceOwed": 14500,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-sup-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "name": "Prime Goods Logistics & Supply",
+      "contactPerson": "Suresh Patil",
+      "mobile": "+91 98920 33221",
+      "email": "supply@primegoods.in",
+      "companyName": "Prime Goods Logistics",
+      "paymentTerms": "Immediate UPI on Delivery",
+      "rating": 4.5,
+      "balanceOwed": 0,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-sup-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "name": "National Wholesale Distributors Pvt Ltd",
+      "contactPerson": "Harish Mehta",
+      "mobile": "+91 98210 55443",
+      "email": "orders@nationaldist.com",
+      "companyName": "National Wholesale Distributors",
+      "gstin": "27AABCN8831Q1ZS",
+      "paymentTerms": "Net 15 Days",
+      "rating": 4.8,
+      "balanceOwed": 14500,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-sup-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "name": "Prime Goods Logistics & Supply",
+      "contactPerson": "Suresh Patil",
+      "mobile": "+91 98920 33221",
+      "email": "supply@primegoods.in",
+      "companyName": "Prime Goods Logistics",
+      "paymentTerms": "Immediate UPI on Delivery",
+      "rating": 4.5,
+      "balanceOwed": 0,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-sup-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "name": "National Wholesale Distributors Pvt Ltd",
+      "contactPerson": "Harish Mehta",
+      "mobile": "+91 98210 55443",
+      "email": "orders@nationaldist.com",
+      "companyName": "National Wholesale Distributors",
+      "gstin": "27AABCN8831Q1ZS",
+      "paymentTerms": "Net 15 Days",
+      "rating": 4.8,
+      "balanceOwed": 14500,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-sup-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "name": "Prime Goods Logistics & Supply",
+      "contactPerson": "Suresh Patil",
+      "mobile": "+91 98920 33221",
+      "email": "supply@primegoods.in",
+      "companyName": "Prime Goods Logistics",
+      "paymentTerms": "Immediate UPI on Delivery",
+      "rating": 4.5,
+      "balanceOwed": 0,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-sup-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "name": "National Wholesale Distributors Pvt Ltd",
+      "contactPerson": "Harish Mehta",
+      "mobile": "+91 98210 55443",
+      "email": "orders@nationaldist.com",
+      "companyName": "National Wholesale Distributors",
+      "gstin": "27AABCN8831Q1ZS",
+      "paymentTerms": "Net 15 Days",
+      "rating": 4.8,
+      "balanceOwed": 14500,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-sup-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "name": "Prime Goods Logistics & Supply",
+      "contactPerson": "Suresh Patil",
+      "mobile": "+91 98920 33221",
+      "email": "supply@primegoods.in",
+      "companyName": "Prime Goods Logistics",
+      "paymentTerms": "Immediate UPI on Delivery",
+      "rating": 4.5,
+      "balanceOwed": 0,
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-medical-demo-sup-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "National Wholesale Distributors Pvt Ltd",
+      "contactPerson": "Harish Mehta",
+      "mobile": "+91 98210 55443",
+      "email": "orders@nationaldist.com",
+      "companyName": "National Wholesale Distributors",
+      "gstin": "27AABCN8831Q1ZS",
+      "paymentTerms": "Net 15 Days",
+      "rating": 4.8,
+      "balanceOwed": 14500,
+      "createdAt": "2026-09-15T05:21:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-sup-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Prime Goods Logistics & Supply",
+      "contactPerson": "Suresh Patil",
+      "mobile": "+91 98920 33221",
+      "email": "supply@primegoods.in",
+      "companyName": "Prime Goods Logistics",
+      "paymentTerms": "Immediate UPI on Delivery",
+      "rating": 4.5,
+      "balanceOwed": 0,
+      "createdAt": "2026-09-15T05:21:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-sup-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "National Wholesale Distributors Pvt Ltd",
+      "contactPerson": "Harish Mehta",
+      "mobile": "+91 98210 55443",
+      "email": "orders@nationaldist.com",
+      "companyName": "National Wholesale Distributors",
+      "gstin": "27AABCN8831Q1ZS",
+      "paymentTerms": "Net 15 Days",
+      "rating": 4.8,
+      "balanceOwed": 14500,
+      "createdAt": "2026-09-15T05:22:18.791Z"
+    },
+    {
+      "id": "biz-medical-demo-sup-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Prime Goods Logistics & Supply",
+      "contactPerson": "Suresh Patil",
+      "mobile": "+91 98920 33221",
+      "email": "supply@primegoods.in",
+      "companyName": "Prime Goods Logistics",
+      "paymentTerms": "Immediate UPI on Delivery",
+      "rating": 4.5,
+      "balanceOwed": 0,
+      "createdAt": "2026-09-15T05:22:18.791Z"
+    }
+  ],
+  "sales": [
+    {
+      "id": "biz-grocery-demo-sale-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "invoiceNumber": "INV-2024-001",
+      "customerId": "biz-grocery-demo-c1",
+      "customerName": "Ramesh Sharma",
+      "customerMobile": "+91 98201 12345",
+      "items": [
+        {
+          "name": "Daawat Rozana Basmati Rice",
+          "sku": "GRO-RICE-05K",
+          "quantity": 2,
+          "unitPrice": 475,
+          "purchaseCost": 380,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 50,
+          "total": 950
+        }
+      ],
+      "subtotal": 950,
+      "discountAmount": 0,
+      "taxAmount": 50,
+      "totalAmount": 1000,
+      "costOfGoodsSold": 760,
+      "grossProfit": 190,
+      "paymentMethod": "UPI",
+      "paymentStatus": "Paid",
+      "amountReceived": 1000,
+      "staffName": "Sunil Kumar (Owner)",
+      "createdAt": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-grocery-demo-sale-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "invoiceNumber": "INV-2024-002",
+      "customerName": "Walk-in Customer",
+      "items": [
+        {
+          "name": "Fortune Sunlite Sunflower Oil 1L",
+          "sku": "GRO-OIL-01L",
+          "quantity": 3,
+          "unitPrice": 145,
+          "purchaseCost": 122,
+          "discount": 20,
+          "taxRate": 5,
+          "taxAmount": 35,
+          "total": 415
+        }
+      ],
+      "subtotal": 435,
+      "discountAmount": 20,
+      "taxAmount": 35,
+      "totalAmount": 450,
+      "costOfGoodsSold": 366,
+      "grossProfit": 49,
+      "paymentMethod": "Cash",
+      "paymentStatus": "Paid",
+      "amountReceived": 450,
+      "staffName": "Manoj (Cashier)",
+      "createdAt": "2026-11-14T11:15:00Z"
+    },
+    {
+      "id": "biz-grocery-demo-sale-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "invoiceNumber": "INV-2024-003",
+      "customerId": "biz-grocery-demo-c2",
+      "customerName": "Anita Desai",
+      "customerMobile": "+91 98192 67890",
+      "items": [
+        {
+          "name": "Daawat Rozana Basmati Rice",
+          "quantity": 1,
+          "unitPrice": 475,
+          "purchaseCost": 380,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 25,
+          "total": 475
+        }
+      ],
+      "subtotal": 475,
+      "discountAmount": 0,
+      "taxAmount": 25,
+      "totalAmount": 500,
+      "costOfGoodsSold": 380,
+      "grossProfit": 95,
+      "paymentMethod": "Split",
+      "paymentStatus": "Partial",
+      "amountReceived": 50,
+      "staffName": "Sunil Kumar (Owner)",
+      "notes": "Customer paid remainder via credit to pay next week",
+      "createdAt": "2026-11-13T16:20:00Z"
+    },
+    {
+      "id": "biz-food-demo-sale-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "invoiceNumber": "INV-2024-001",
+      "customerId": "biz-food-demo-c1",
+      "customerName": "Ramesh Sharma",
+      "customerMobile": "+91 98201 12345",
+      "items": [
+        {
+          "name": "Paneer Butter Masala Special",
+          "sku": "FOD-PBM-01",
+          "quantity": 2,
+          "unitPrice": 280,
+          "purchaseCost": 95,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 50,
+          "total": 560
+        }
+      ],
+      "subtotal": 560,
+      "discountAmount": 0,
+      "taxAmount": 50,
+      "totalAmount": 610,
+      "costOfGoodsSold": 190,
+      "grossProfit": 370,
+      "paymentMethod": "UPI",
+      "paymentStatus": "Paid",
+      "amountReceived": 610,
+      "staffName": "Sunil Kumar (Owner)",
+      "createdAt": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-food-demo-sale-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "invoiceNumber": "INV-2024-002",
+      "customerName": "Walk-in Customer",
+      "items": [
+        {
+          "name": "Dum Handi Chicken Biryani",
+          "sku": "FOD-BRY-CHK",
+          "quantity": 3,
+          "unitPrice": 340,
+          "purchaseCost": 130,
+          "discount": 20,
+          "taxRate": 5,
+          "taxAmount": 35,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1020,
+      "discountAmount": 20,
+      "taxAmount": 35,
+      "totalAmount": 1035,
+      "costOfGoodsSold": 390,
+      "grossProfit": 610,
+      "paymentMethod": "Cash",
+      "paymentStatus": "Paid",
+      "amountReceived": 1035,
+      "staffName": "Manoj (Cashier)",
+      "createdAt": "2026-11-14T11:15:00Z"
+    },
+    {
+      "id": "biz-food-demo-sale-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "invoiceNumber": "INV-2024-003",
+      "customerId": "biz-food-demo-c2",
+      "customerName": "Anita Desai",
+      "customerMobile": "+91 98192 67890",
+      "items": [
+        {
+          "name": "Paneer Butter Masala Special",
+          "quantity": 1,
+          "unitPrice": 280,
+          "purchaseCost": 95,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 25,
+          "total": 280
+        }
+      ],
+      "subtotal": 280,
+      "discountAmount": 0,
+      "taxAmount": 25,
+      "totalAmount": 305,
+      "costOfGoodsSold": 95,
+      "grossProfit": 185,
+      "paymentMethod": "Split",
+      "paymentStatus": "Partial",
+      "amountReceived": -145,
+      "staffName": "Sunil Kumar (Owner)",
+      "notes": "Customer paid remainder via credit to pay next week",
+      "createdAt": "2026-11-13T16:20:00Z"
+    },
+    {
+      "id": "biz-clothing-demo-sale-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "invoiceNumber": "INV-2024-001",
+      "customerId": "biz-clothing-demo-c1",
+      "customerName": "Ramesh Sharma",
+      "customerMobile": "+91 98201 12345",
+      "items": [
+        {
+          "name": "Slim Fit Cotton Casual Shirt (Sky Blue - Size 40)",
+          "sku": "CLO-SHIRT-BLU-40",
+          "quantity": 2,
+          "unitPrice": 1199,
+          "purchaseCost": 550,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 50,
+          "total": 2398
+        }
+      ],
+      "subtotal": 2398,
+      "discountAmount": 0,
+      "taxAmount": 50,
+      "totalAmount": 2448,
+      "costOfGoodsSold": 1100,
+      "grossProfit": 1298,
+      "paymentMethod": "UPI",
+      "paymentStatus": "Paid",
+      "amountReceived": 2448,
+      "staffName": "Sunil Kumar (Owner)",
+      "createdAt": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-clothing-demo-sale-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "invoiceNumber": "INV-2024-002",
+      "customerName": "Walk-in Customer",
+      "items": [
+        {
+          "name": "Chanderi Silk Anarkali Kurta Set with Dupatta (Teal - Size L)",
+          "sku": "CLO-KURTA-TEA-L",
+          "quantity": 3,
+          "unitPrice": 2899,
+          "purchaseCost": 1450,
+          "discount": 20,
+          "taxRate": 5,
+          "taxAmount": 35,
+          "total": 8677
+        }
+      ],
+      "subtotal": 8697,
+      "discountAmount": 20,
+      "taxAmount": 35,
+      "totalAmount": 8712,
+      "costOfGoodsSold": 4350,
+      "grossProfit": 4327,
+      "paymentMethod": "Cash",
+      "paymentStatus": "Paid",
+      "amountReceived": 8712,
+      "staffName": "Manoj (Cashier)",
+      "createdAt": "2026-11-14T11:15:00Z"
+    },
+    {
+      "id": "biz-clothing-demo-sale-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "invoiceNumber": "INV-2024-003",
+      "customerId": "biz-clothing-demo-c2",
+      "customerName": "Anita Desai",
+      "customerMobile": "+91 98192 67890",
+      "items": [
+        {
+          "name": "Slim Fit Cotton Casual Shirt (Sky Blue - Size 40)",
+          "quantity": 1,
+          "unitPrice": 1199,
+          "purchaseCost": 550,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 25,
+          "total": 1199
+        }
+      ],
+      "subtotal": 1199,
+      "discountAmount": 0,
+      "taxAmount": 25,
+      "totalAmount": 1224,
+      "costOfGoodsSold": 550,
+      "grossProfit": 649,
+      "paymentMethod": "Split",
+      "paymentStatus": "Partial",
+      "amountReceived": 774,
+      "staffName": "Sunil Kumar (Owner)",
+      "notes": "Customer paid remainder via credit to pay next week",
+      "createdAt": "2026-11-13T16:20:00Z"
+    },
+    {
+      "id": "biz-electronics-demo-sale-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "invoiceNumber": "INV-2024-001",
+      "customerId": "biz-electronics-demo-c1",
+      "customerName": "Ramesh Sharma",
+      "customerMobile": "+91 98201 12345",
+      "items": [
+        {
+          "name": "Samsung Galaxy A35 5G (8GB RAM, 128GB - Awesome Navy)",
+          "sku": "ELEC-SAM-A35",
+          "quantity": 2,
+          "unitPrice": 27999,
+          "purchaseCost": 24500,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 50,
+          "total": 55998
+        }
+      ],
+      "subtotal": 55998,
+      "discountAmount": 0,
+      "taxAmount": 50,
+      "totalAmount": 56048,
+      "costOfGoodsSold": 49000,
+      "grossProfit": 6998,
+      "paymentMethod": "UPI",
+      "paymentStatus": "Paid",
+      "amountReceived": 56048,
+      "staffName": "Sunil Kumar (Owner)",
+      "createdAt": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-electronics-demo-sale-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "invoiceNumber": "INV-2024-002",
+      "customerName": "Walk-in Customer",
+      "items": [
+        {
+          "name": "Apple 20W USB-C Power Adapter (Original)",
+          "sku": "ELEC-APL-20W",
+          "quantity": 3,
+          "unitPrice": 1900,
+          "purchaseCost": 1450,
+          "discount": 20,
+          "taxRate": 5,
+          "taxAmount": 35,
+          "total": 5680
+        }
+      ],
+      "subtotal": 5700,
+      "discountAmount": 20,
+      "taxAmount": 35,
+      "totalAmount": 5715,
+      "costOfGoodsSold": 4350,
+      "grossProfit": 1330,
+      "paymentMethod": "Cash",
+      "paymentStatus": "Paid",
+      "amountReceived": 5715,
+      "staffName": "Manoj (Cashier)",
+      "createdAt": "2026-11-14T11:15:00Z"
+    },
+    {
+      "id": "biz-electronics-demo-sale-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "invoiceNumber": "INV-2024-003",
+      "customerId": "biz-electronics-demo-c2",
+      "customerName": "Anita Desai",
+      "customerMobile": "+91 98192 67890",
+      "items": [
+        {
+          "name": "Samsung Galaxy A35 5G (8GB RAM, 128GB - Awesome Navy)",
+          "quantity": 1,
+          "unitPrice": 27999,
+          "purchaseCost": 24500,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 25,
+          "total": 27999
+        }
+      ],
+      "subtotal": 27999,
+      "discountAmount": 0,
+      "taxAmount": 25,
+      "totalAmount": 28024,
+      "costOfGoodsSold": 24500,
+      "grossProfit": 3499,
+      "paymentMethod": "Split",
+      "paymentStatus": "Partial",
+      "amountReceived": 27574,
+      "staffName": "Sunil Kumar (Owner)",
+      "notes": "Customer paid remainder via credit to pay next week",
+      "createdAt": "2026-11-13T16:20:00Z"
+    },
+    {
+      "id": "biz-salon-demo-sale-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "invoiceNumber": "INV-2024-001",
+      "customerId": "biz-salon-demo-c1",
+      "customerName": "Ramesh Sharma",
+      "customerMobile": "+91 98201 12345",
+      "items": [
+        {
+          "name": "Primary Catalog Item",
+          "sku": "SKU-001",
+          "quantity": 2,
+          "unitPrice": 500,
+          "purchaseCost": 350,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 50,
+          "total": 1000
+        }
+      ],
+      "subtotal": 1000,
+      "discountAmount": 0,
+      "taxAmount": 50,
+      "totalAmount": 1050,
+      "costOfGoodsSold": 700,
+      "grossProfit": 300,
+      "paymentMethod": "UPI",
+      "paymentStatus": "Paid",
+      "amountReceived": 1050,
+      "staffName": "Sunil Kumar (Owner)",
+      "createdAt": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-salon-demo-sale-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "invoiceNumber": "INV-2024-002",
+      "customerName": "Walk-in Customer",
+      "items": [
+        {
+          "name": "Standard Store Item",
+          "sku": "SKU-002",
+          "quantity": 3,
+          "unitPrice": 250,
+          "purchaseCost": 180,
+          "discount": 20,
+          "taxRate": 5,
+          "taxAmount": 35,
+          "total": 730
+        }
+      ],
+      "subtotal": 750,
+      "discountAmount": 20,
+      "taxAmount": 35,
+      "totalAmount": 765,
+      "costOfGoodsSold": 540,
+      "grossProfit": 190,
+      "paymentMethod": "Cash",
+      "paymentStatus": "Paid",
+      "amountReceived": 765,
+      "staffName": "Manoj (Cashier)",
+      "createdAt": "2026-11-14T11:15:00Z"
+    },
+    {
+      "id": "biz-salon-demo-sale-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "invoiceNumber": "INV-2024-003",
+      "customerId": "biz-salon-demo-c2",
+      "customerName": "Anita Desai",
+      "customerMobile": "+91 98192 67890",
+      "items": [
+        {
+          "name": "Catalog Item",
+          "quantity": 1,
+          "unitPrice": 500,
+          "purchaseCost": 350,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 25,
+          "total": 500
+        }
+      ],
+      "subtotal": 500,
+      "discountAmount": 0,
+      "taxAmount": 25,
+      "totalAmount": 525,
+      "costOfGoodsSold": 350,
+      "grossProfit": 150,
+      "paymentMethod": "Split",
+      "paymentStatus": "Partial",
+      "amountReceived": 75,
+      "staffName": "Sunil Kumar (Owner)",
+      "notes": "Customer paid remainder via credit to pay next week",
+      "createdAt": "2026-11-13T16:20:00Z"
+    },
+    {
+      "id": "biz-medical-demo-sale-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "invoiceNumber": "INV-2024-001",
+      "customerId": "biz-medical-demo-c1",
+      "customerName": "Ramesh Sharma",
+      "customerMobile": "+91 98201 12345",
+      "items": [
+        {
+          "name": "Augmentin 625 Duo Tablet (Strip of 10)",
+          "sku": "MED-AUG-625",
+          "quantity": 2,
+          "unitPrice": 201,
+          "purchaseCost": 168,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 50,
+          "total": 402
+        }
+      ],
+      "subtotal": 402,
+      "discountAmount": 0,
+      "taxAmount": 50,
+      "totalAmount": 452,
+      "costOfGoodsSold": 336,
+      "grossProfit": 66,
+      "paymentMethod": "UPI",
+      "paymentStatus": "Paid",
+      "amountReceived": 452,
+      "staffName": "Sunil Kumar (Owner)",
+      "createdAt": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-medical-demo-sale-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "invoiceNumber": "INV-2024-002",
+      "customerName": "Walk-in Customer",
+      "items": [
+        {
+          "name": "Dolo 650mg Tablet (Strip of 15)",
+          "sku": "MED-DOLO-650",
+          "quantity": 3,
+          "unitPrice": 33,
+          "purchaseCost": 25,
+          "discount": 20,
+          "taxRate": 5,
+          "taxAmount": 35,
+          "total": 79
+        }
+      ],
+      "subtotal": 99,
+      "discountAmount": 20,
+      "taxAmount": 35,
+      "totalAmount": 114,
+      "costOfGoodsSold": 75,
+      "grossProfit": 4,
+      "paymentMethod": "Cash",
+      "paymentStatus": "Paid",
+      "amountReceived": 114,
+      "staffName": "Manoj (Cashier)",
+      "createdAt": "2026-11-14T11:15:00Z"
+    },
+    {
+      "id": "biz-medical-demo-sale-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "invoiceNumber": "INV-2024-003",
+      "customerId": "biz-medical-demo-c2",
+      "customerName": "Anita Desai",
+      "customerMobile": "+91 98192 67890",
+      "items": [
+        {
+          "name": "Augmentin 625 Duo Tablet (Strip of 10)",
+          "quantity": 1,
+          "unitPrice": 201,
+          "purchaseCost": 168,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 25,
+          "total": 201
+        }
+      ],
+      "subtotal": 201,
+      "discountAmount": 0,
+      "taxAmount": 25,
+      "totalAmount": 226,
+      "costOfGoodsSold": 168,
+      "grossProfit": 33,
+      "paymentMethod": "Split",
+      "paymentStatus": "Partial",
+      "amountReceived": -224,
+      "staffName": "Sunil Kumar (Owner)",
+      "notes": "Customer paid remainder via credit to pay next week",
+      "createdAt": "2026-11-13T16:20:00Z"
+    },
+    {
+      "id": "sale-test-1794633661283",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "invoiceNumber": "INV-TEST-1283",
+      "customerName": "Test Patient (Kavita Rao)",
+      "items": [
+        {
+          "productId": "biz-medical-demo-p1",
+          "name": "Augmentin 625 Duo Tablet (Strip of 10)",
+          "quantity": 2,
+          "unitPrice": 201,
+          "purchaseCost": 168,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 20.1,
+          "total": 402
+        }
+      ],
+      "subtotal": 402,
+      "discountAmount": 0,
+      "taxAmount": 20.1,
+      "totalAmount": 422.1,
+      "costOfGoodsSold": 336,
+      "grossProfit": 66,
+      "paymentMethod": "UPI",
+      "paymentStatus": "Paid",
+      "amountReceived": 422.1,
+      "staffName": "Staff Pharmacist",
+      "createdAt": "2026-11-14T05:21:01.283Z"
+    },
+    {
+      "id": "biz-medical-demo-sale-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "invoiceNumber": "INV-2024-001",
+      "customerId": "biz-medical-demo-c1",
+      "customerName": "Ramesh Sharma",
+      "customerMobile": "+91 98201 12345",
+      "items": [
+        {
+          "name": "Augmentin 625 Duo Tablet (Strip of 10)",
+          "sku": "MED-AUG-625",
+          "quantity": 2,
+          "unitPrice": 201,
+          "purchaseCost": 168,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 50,
+          "total": 402
+        }
+      ],
+      "subtotal": 402,
+      "discountAmount": 0,
+      "taxAmount": 50,
+      "totalAmount": 452,
+      "costOfGoodsSold": 336,
+      "grossProfit": 66,
+      "paymentMethod": "UPI",
+      "paymentStatus": "Paid",
+      "amountReceived": 452,
+      "staffName": "Sunil Kumar (Owner)",
+      "createdAt": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-medical-demo-sale-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "invoiceNumber": "INV-2024-002",
+      "customerName": "Walk-in Customer",
+      "items": [
+        {
+          "name": "Dolo 650mg Tablet (Strip of 15)",
+          "sku": "MED-DOLO-650",
+          "quantity": 3,
+          "unitPrice": 33,
+          "purchaseCost": 25,
+          "discount": 20,
+          "taxRate": 5,
+          "taxAmount": 35,
+          "total": 79
+        }
+      ],
+      "subtotal": 99,
+      "discountAmount": 20,
+      "taxAmount": 35,
+      "totalAmount": 114,
+      "costOfGoodsSold": 75,
+      "grossProfit": 4,
+      "paymentMethod": "Cash",
+      "paymentStatus": "Paid",
+      "amountReceived": 114,
+      "staffName": "Manoj (Cashier)",
+      "createdAt": "2026-11-14T11:15:00Z"
+    },
+    {
+      "id": "biz-medical-demo-sale-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "invoiceNumber": "INV-2024-003",
+      "customerId": "biz-medical-demo-c2",
+      "customerName": "Anita Desai",
+      "customerMobile": "+91 98192 67890",
+      "items": [
+        {
+          "name": "Augmentin 625 Duo Tablet (Strip of 10)",
+          "quantity": 1,
+          "unitPrice": 201,
+          "purchaseCost": 168,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 25,
+          "total": 201
+        }
+      ],
+      "subtotal": 201,
+      "discountAmount": 0,
+      "taxAmount": 25,
+      "totalAmount": 226,
+      "costOfGoodsSold": 168,
+      "grossProfit": 33,
+      "paymentMethod": "Split",
+      "paymentStatus": "Partial",
+      "amountReceived": -224,
+      "staffName": "Sunil Kumar (Owner)",
+      "notes": "Customer paid remainder via credit to pay next week",
+      "createdAt": "2026-11-13T16:20:00Z"
+    },
+    {
+      "id": "sale-test-1794633738796",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "invoiceNumber": "INV-TEST-8796",
+      "customerName": "Test Patient (Kavita Rao)",
+      "items": [
+        {
+          "productId": "biz-medical-demo-p1",
+          "name": "Augmentin 625 Duo Tablet (Strip of 10)",
+          "quantity": 2,
+          "unitPrice": 201,
+          "purchaseCost": 168,
+          "discount": 0,
+          "taxRate": 5,
+          "taxAmount": 20.1,
+          "total": 402
+        }
+      ],
+      "subtotal": 402,
+      "discountAmount": 0,
+      "taxAmount": 20.1,
+      "totalAmount": 422.1,
+      "costOfGoodsSold": 336,
+      "grossProfit": 66,
+      "paymentMethod": "UPI",
+      "paymentStatus": "Paid",
+      "amountReceived": 422.1,
+      "staffName": "Staff Pharmacist",
+      "createdAt": "2026-11-14T05:22:18.796Z"
+    }
+  ],
+  "expenses": [
+    {
+      "id": "biz-grocery-demo-exp-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "category": "Rent",
+      "description": "Monthly Shop Commercial Rent for Plaza Unit",
+      "amount": 18000,
+      "paymentMethod": "Bank Transfer",
+      "paidTo": "Plaza Management Ltd",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-01",
+      "createdAt": "2026-11-04T05:21:01.275Z"
+    },
+    {
+      "id": "biz-grocery-demo-exp-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "category": "Utilities",
+      "description": "Commercial Electricity & Water Bill",
+      "amount": 4250,
+      "paymentMethod": "UPI",
+      "paidTo": "Mahavitaran Discom",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-05",
+      "createdAt": "2026-11-09T05:21:01.275Z"
+    },
+    {
+      "id": "biz-grocery-demo-exp-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "category": "Logistics & Delivery",
+      "description": "Local Delivery Fuel & Packing Materials",
+      "amount": 1200,
+      "paymentMethod": "Cash",
+      "paidTo": "City Cargo Delivery",
+      "recordedBy": "Manoj",
+      "date": "2026-11-13",
+      "createdAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-exp-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "category": "Rent",
+      "description": "Monthly Shop Commercial Rent for Plaza Unit",
+      "amount": 18000,
+      "paymentMethod": "Bank Transfer",
+      "paidTo": "Plaza Management Ltd",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-01",
+      "createdAt": "2026-11-04T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-exp-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "category": "Utilities",
+      "description": "Commercial Electricity & Water Bill",
+      "amount": 4250,
+      "paymentMethod": "UPI",
+      "paidTo": "Mahavitaran Discom",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-05",
+      "createdAt": "2026-11-09T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-exp-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "category": "Logistics & Delivery",
+      "description": "Local Delivery Fuel & Packing Materials",
+      "amount": 1200,
+      "paymentMethod": "Cash",
+      "paidTo": "City Cargo Delivery",
+      "recordedBy": "Manoj",
+      "date": "2026-11-13",
+      "createdAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-exp-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "category": "Rent",
+      "description": "Monthly Shop Commercial Rent for Plaza Unit",
+      "amount": 18000,
+      "paymentMethod": "Bank Transfer",
+      "paidTo": "Plaza Management Ltd",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-01",
+      "createdAt": "2026-11-04T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-exp-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "category": "Utilities",
+      "description": "Commercial Electricity & Water Bill",
+      "amount": 4250,
+      "paymentMethod": "UPI",
+      "paidTo": "Mahavitaran Discom",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-05",
+      "createdAt": "2026-11-09T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-exp-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "category": "Logistics & Delivery",
+      "description": "Local Delivery Fuel & Packing Materials",
+      "amount": 1200,
+      "paymentMethod": "Cash",
+      "paidTo": "City Cargo Delivery",
+      "recordedBy": "Manoj",
+      "date": "2026-11-13",
+      "createdAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-exp-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "category": "Rent",
+      "description": "Monthly Shop Commercial Rent for Plaza Unit",
+      "amount": 18000,
+      "paymentMethod": "Bank Transfer",
+      "paidTo": "Plaza Management Ltd",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-01",
+      "createdAt": "2026-11-04T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-exp-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "category": "Utilities",
+      "description": "Commercial Electricity & Water Bill",
+      "amount": 4250,
+      "paymentMethod": "UPI",
+      "paidTo": "Mahavitaran Discom",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-05",
+      "createdAt": "2026-11-09T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-exp-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "category": "Logistics & Delivery",
+      "description": "Local Delivery Fuel & Packing Materials",
+      "amount": 1200,
+      "paymentMethod": "Cash",
+      "paidTo": "City Cargo Delivery",
+      "recordedBy": "Manoj",
+      "date": "2026-11-13",
+      "createdAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-exp-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "category": "Rent",
+      "description": "Monthly Shop Commercial Rent for Plaza Unit",
+      "amount": 18000,
+      "paymentMethod": "Bank Transfer",
+      "paidTo": "Plaza Management Ltd",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-01",
+      "createdAt": "2026-11-04T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-exp-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "category": "Utilities",
+      "description": "Commercial Electricity & Water Bill",
+      "amount": 4250,
+      "paymentMethod": "UPI",
+      "paidTo": "Mahavitaran Discom",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-05",
+      "createdAt": "2026-11-09T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-exp-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "category": "Logistics & Delivery",
+      "description": "Local Delivery Fuel & Packing Materials",
+      "amount": 1200,
+      "paymentMethod": "Cash",
+      "paidTo": "City Cargo Delivery",
+      "recordedBy": "Manoj",
+      "date": "2026-11-13",
+      "createdAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-medical-demo-exp-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "category": "Rent",
+      "description": "Monthly Shop Commercial Rent for Plaza Unit",
+      "amount": 18000,
+      "paymentMethod": "Bank Transfer",
+      "paidTo": "Plaza Management Ltd",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-01",
+      "createdAt": "2026-11-04T05:21:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-exp-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "category": "Utilities",
+      "description": "Commercial Electricity & Water Bill",
+      "amount": 4250,
+      "paymentMethod": "UPI",
+      "paidTo": "Mahavitaran Discom",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-05",
+      "createdAt": "2026-11-09T05:21:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-exp-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "category": "Logistics & Delivery",
+      "description": "Local Delivery Fuel & Packing Materials",
+      "amount": 1200,
+      "paymentMethod": "Cash",
+      "paidTo": "City Cargo Delivery",
+      "recordedBy": "Manoj",
+      "date": "2026-11-13",
+      "createdAt": "2026-11-13T05:21:01.280Z"
+    },
+    {
+      "id": "exp-test-1794633661286",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "category": "Utilities",
+      "description": "Pharmacy Refrigeration & Cold Chain Electricity",
+      "amount": 3500,
+      "paymentMethod": "UPI",
+      "recordedBy": "Owner",
+      "date": "2026-11-14",
+      "createdAt": "2026-11-14T05:21:01.286Z"
+    },
+    {
+      "id": "biz-medical-demo-exp-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "category": "Rent",
+      "description": "Monthly Shop Commercial Rent for Plaza Unit",
+      "amount": 18000,
+      "paymentMethod": "Bank Transfer",
+      "paidTo": "Plaza Management Ltd",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-01",
+      "createdAt": "2026-11-04T05:22:18.791Z"
+    },
+    {
+      "id": "biz-medical-demo-exp-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "category": "Utilities",
+      "description": "Commercial Electricity & Water Bill",
+      "amount": 4250,
+      "paymentMethod": "UPI",
+      "paidTo": "Mahavitaran Discom",
+      "recordedBy": "Sunil Kumar",
+      "date": "2026-11-05",
+      "createdAt": "2026-11-09T05:22:18.791Z"
+    },
+    {
+      "id": "biz-medical-demo-exp-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "category": "Logistics & Delivery",
+      "description": "Local Delivery Fuel & Packing Materials",
+      "amount": 1200,
+      "paymentMethod": "Cash",
+      "paidTo": "City Cargo Delivery",
+      "recordedBy": "Manoj",
+      "date": "2026-11-13",
+      "createdAt": "2026-11-13T05:22:18.791Z"
+    },
+    {
+      "id": "exp-test-1794633738798",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "category": "Utilities",
+      "description": "Pharmacy Refrigeration & Cold Chain Electricity",
+      "amount": 3500,
+      "paymentMethod": "UPI",
+      "recordedBy": "Owner",
+      "date": "2026-11-14",
+      "createdAt": "2026-11-14T05:22:18.798Z"
+    }
+  ],
+  "staff": [
+    {
+      "id": "biz-grocery-demo-st-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "Sunil Kumar",
+      "mobile": "+91 98765 43210",
+      "email": "sunil@bizpilot.ai",
+      "role": "owner",
+      "joiningDate": "2023-01-01",
+      "status": "Active",
+      "salesCount": 142,
+      "salesTotal": 284000,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": true,
+        "canViewReports": true,
+        "canManageStaff": true,
+        "canApproveActions": true
+      },
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-grocery-demo-st-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "name": "Manoj Verma",
+      "mobile": "+91 98210 99887",
+      "email": "manoj.cashier@gmail.com",
+      "role": "cashier",
+      "salary": 16500,
+      "joiningDate": "2023-06-15",
+      "status": "Active",
+      "salesCount": 89,
+      "salesTotal": 96500,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": false,
+        "canViewReports": false,
+        "canManageStaff": false,
+        "canApproveActions": false
+      },
+      "createdAt": "2026-09-25T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-st-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "name": "Sunil Kumar",
+      "mobile": "+91 98765 43210",
+      "email": "sunil@bizpilot.ai",
+      "role": "owner",
+      "joiningDate": "2023-01-01",
+      "status": "Active",
+      "salesCount": 142,
+      "salesTotal": 284000,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": true,
+        "canViewReports": true,
+        "canManageStaff": true,
+        "canApproveActions": true
+      },
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-st-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "name": "Manoj Verma",
+      "mobile": "+91 98210 99887",
+      "email": "manoj.cashier@gmail.com",
+      "role": "cashier",
+      "salary": 16500,
+      "joiningDate": "2023-06-15",
+      "status": "Active",
+      "salesCount": 89,
+      "salesTotal": 96500,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": false,
+        "canViewReports": false,
+        "canManageStaff": false,
+        "canApproveActions": false
+      },
+      "createdAt": "2026-09-25T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-st-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "name": "Sunil Kumar",
+      "mobile": "+91 98765 43210",
+      "email": "sunil@bizpilot.ai",
+      "role": "owner",
+      "joiningDate": "2023-01-01",
+      "status": "Active",
+      "salesCount": 142,
+      "salesTotal": 284000,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": true,
+        "canViewReports": true,
+        "canManageStaff": true,
+        "canApproveActions": true
+      },
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-st-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "name": "Manoj Verma",
+      "mobile": "+91 98210 99887",
+      "email": "manoj.cashier@gmail.com",
+      "role": "cashier",
+      "salary": 16500,
+      "joiningDate": "2023-06-15",
+      "status": "Active",
+      "salesCount": 89,
+      "salesTotal": 96500,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": false,
+        "canViewReports": false,
+        "canManageStaff": false,
+        "canApproveActions": false
+      },
+      "createdAt": "2026-09-25T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-st-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "name": "Sunil Kumar",
+      "mobile": "+91 98765 43210",
+      "email": "sunil@bizpilot.ai",
+      "role": "owner",
+      "joiningDate": "2023-01-01",
+      "status": "Active",
+      "salesCount": 142,
+      "salesTotal": 284000,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": true,
+        "canViewReports": true,
+        "canManageStaff": true,
+        "canApproveActions": true
+      },
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-st-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "name": "Manoj Verma",
+      "mobile": "+91 98210 99887",
+      "email": "manoj.cashier@gmail.com",
+      "role": "cashier",
+      "salary": 16500,
+      "joiningDate": "2023-06-15",
+      "status": "Active",
+      "salesCount": 89,
+      "salesTotal": 96500,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": false,
+        "canViewReports": false,
+        "canManageStaff": false,
+        "canApproveActions": false
+      },
+      "createdAt": "2026-09-25T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-st-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "name": "Sunil Kumar",
+      "mobile": "+91 98765 43210",
+      "email": "sunil@bizpilot.ai",
+      "role": "owner",
+      "joiningDate": "2023-01-01",
+      "status": "Active",
+      "salesCount": 142,
+      "salesTotal": 284000,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": true,
+        "canViewReports": true,
+        "canManageStaff": true,
+        "canApproveActions": true
+      },
+      "createdAt": "2026-09-15T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-st-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "name": "Manoj Verma",
+      "mobile": "+91 98210 99887",
+      "email": "manoj.cashier@gmail.com",
+      "role": "cashier",
+      "salary": 16500,
+      "joiningDate": "2023-06-15",
+      "status": "Active",
+      "salesCount": 89,
+      "salesTotal": 96500,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": false,
+        "canViewReports": false,
+        "canManageStaff": false,
+        "canApproveActions": false
+      },
+      "createdAt": "2026-09-25T05:21:01.275Z"
+    },
+    {
+      "id": "biz-medical-demo-st-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Sunil Kumar",
+      "mobile": "+91 98765 43210",
+      "email": "sunil@bizpilot.ai",
+      "role": "owner",
+      "joiningDate": "2023-01-01",
+      "status": "Active",
+      "salesCount": 142,
+      "salesTotal": 284000,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": true,
+        "canViewReports": true,
+        "canManageStaff": true,
+        "canApproveActions": true
+      },
+      "createdAt": "2026-09-15T05:21:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-st-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Manoj Verma",
+      "mobile": "+91 98210 99887",
+      "email": "manoj.cashier@gmail.com",
+      "role": "cashier",
+      "salary": 16500,
+      "joiningDate": "2023-06-15",
+      "status": "Active",
+      "salesCount": 89,
+      "salesTotal": 96500,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": false,
+        "canViewReports": false,
+        "canManageStaff": false,
+        "canApproveActions": false
+      },
+      "createdAt": "2026-09-25T05:21:01.280Z"
+    },
+    {
+      "id": "st-test-1794633661289",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Dr. Ramesh (Chief Pharmacist)",
+      "mobile": "+91 99112 23344",
+      "email": "ramesh.pharm@gmail.com",
+      "role": "manager",
+      "salary": 28000,
+      "joiningDate": "2024-01-15",
+      "status": "Active",
+      "salesCount": 0,
+      "salesTotal": 0,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": true,
+        "canViewReports": true,
+        "canManageStaff": false,
+        "canApproveActions": false
+      },
+      "createdAt": "2026-11-14T05:21:01.289Z"
+    },
+    {
+      "id": "biz-medical-demo-st-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Sunil Kumar",
+      "mobile": "+91 98765 43210",
+      "email": "sunil@bizpilot.ai",
+      "role": "owner",
+      "joiningDate": "2023-01-01",
+      "status": "Active",
+      "salesCount": 142,
+      "salesTotal": 284000,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": true,
+        "canViewReports": true,
+        "canManageStaff": true,
+        "canApproveActions": true
+      },
+      "createdAt": "2026-09-15T05:22:18.791Z"
+    },
+    {
+      "id": "biz-medical-demo-st-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Manoj Verma",
+      "mobile": "+91 98210 99887",
+      "email": "manoj.cashier@gmail.com",
+      "role": "cashier",
+      "salary": 16500,
+      "joiningDate": "2023-06-15",
+      "status": "Active",
+      "salesCount": 89,
+      "salesTotal": 96500,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": false,
+        "canViewReports": false,
+        "canManageStaff": false,
+        "canApproveActions": false
+      },
+      "createdAt": "2026-09-25T05:22:18.791Z"
+    },
+    {
+      "id": "st-test-1794633738800",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "name": "Dr. Ramesh (Chief Pharmacist)",
+      "mobile": "+91 99112 23344",
+      "email": "ramesh.pharm@gmail.com",
+      "role": "manager",
+      "salary": 28000,
+      "joiningDate": "2024-01-15",
+      "status": "Active",
+      "salesCount": 0,
+      "salesTotal": 0,
+      "permissions": {
+        "canBill": true,
+        "canManageInventory": true,
+        "canViewReports": true,
+        "canManageStaff": false,
+        "canApproveActions": false
+      },
+      "createdAt": "2026-11-14T05:22:18.800Z"
+    }
+  ],
+  "orders": [
+    {
+      "id": "biz-food-demo-ord-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "orderNumber": "KOT-104",
+      "orderType": "Dine-in",
+      "tableNumber": "Table 4",
+      "customerName": "Rahul Verma",
+      "customerMobile": "9820011223",
+      "status": "Preparing",
+      "items": [
+        {
+          "name": "Paneer Butter Masala Special",
+          "quantity": 1,
+          "price": 280
+        },
+        {
+          "name": "Butter Garlic Naan",
+          "quantity": 3,
+          "price": 60
+        },
+        {
+          "name": "Artisan Hazelnut Cold Coffee",
+          "quantity": 2,
+          "price": 160
+        }
+      ],
+      "totalAmount": 780,
+      "isPaid": false,
+      "notes": "Less spicy in curry, extra crunchy naan",
+      "createdAt": "2026-11-14T04:52:13.275Z",
+      "updatedAt": "2026-11-14T05:06:37.275Z"
+    },
+    {
+      "id": "biz-food-demo-ord-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "orderNumber": "KOT-103",
+      "orderType": "Delivery",
+      "customerName": "Pooja Iyer",
+      "customerMobile": "9845012345",
+      "deliveryAddress": "Flat 402, Green Glen Palms, Bellandur",
+      "status": "Ready",
+      "items": [
+        {
+          "name": "Dum Handi Chicken Biryani",
+          "quantity": 2,
+          "price": 340
+        }
+      ],
+      "totalAmount": 680,
+      "isPaid": true,
+      "notes": "Send extra salan and onion raita",
+      "createdAt": "2026-11-14T04:09:01.275Z",
+      "updatedAt": "2026-11-14T04:52:13.275Z"
+    }
+  ],
+  "appointments": [
+    {
+      "id": "biz-salon-demo-apt-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "customerName": "Dr. Ananya Sen",
+      "customerMobile": "9822334455",
+      "serviceId": "biz-salon-demo-s2",
+      "serviceName": "O3+ Bridal Glow Facial & De-Tan Spa",
+      "staffId": "biz-salon-demo-st-2",
+      "staffName": "Megha (Senior Esthetician)",
+      "date": "2026-11-14",
+      "timeSlot": "2:30 PM - 3:45 PM",
+      "status": "Confirmed",
+      "price": 1899,
+      "notes": "Client has sensitive skin, use aloe soothing serum",
+      "createdAt": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-apt-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "customerName": "Sameer Kapoor",
+      "customerMobile": "9911223344",
+      "serviceId": "biz-salon-demo-s1",
+      "serviceName": "Classic Haircut + Beard Styling + Head Massage",
+      "staffId": "biz-salon-demo-st-1",
+      "staffName": "Rohan (Master Stylist)",
+      "date": "2026-11-14",
+      "timeSlot": "4:00 PM - 4:45 PM",
+      "status": "Scheduled",
+      "price": 499,
+      "createdAt": "2026-11-12T05:21:01.275Z"
+    }
+  ],
+  "repairs": [
+    {
+      "id": "biz-electronics-demo-rep-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "ticketNumber": "TKT-CARE-804",
+      "customerName": "Vikram Joshi",
+      "customerMobile": "9988776655",
+      "deviceType": "Smartphone",
+      "brandModel": "OnePlus 11R 5G",
+      "imeiOrSerial": "869201048291045",
+      "issueDescription": "Cracked front AMOLED display, touch unresponsive on lower right",
+      "estimatedCost": 7500,
+      "status": "Waiting for Parts",
+      "technicianNotes": "Original OLED replacement screen ordered from OEM distributor, arriving tomorrow morning",
+      "receivedDate": "2026-11-13T05:21:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-rep-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "ticketNumber": "TKT-CARE-802",
+      "customerName": "Priya Nambiar",
+      "customerMobile": "9811224466",
+      "deviceType": "Laptop",
+      "brandModel": "Dell Inspiron 15 5510",
+      "imeiOrSerial": "SERV-TAG-7HGK91",
+      "issueDescription": "OS not booting, overheating fan noise",
+      "estimatedCost": 3200,
+      "finalCost": 3200,
+      "status": "Ready for Pickup",
+      "technicianNotes": "Cleaned heatsink, re-applied thermal paste, installed 500GB NVMe SSD and restored Windows 11",
+      "receivedDate": "2026-11-11T05:21:01.275Z",
+      "readyDate": "2026-11-14"
+    }
+  ],
+  "agentTasks": [
+    {
+      "id": "tsk-1794633738819",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "agentType": "Inventory Intelligence Agent",
+      "title": "Restock Order PO for 2 Low-Stock Items",
+      "prompt": "Which products are running low?",
+      "response": "Inventory check complete: 2 items require replenishment. A restocking plan has been drafted for your approval.",
+      "status": "Approved",
+      "requiresApproval": true,
+      "actionPayload": {
+        "action": "CREATE_PURCHASE_ORDER",
+        "entity": "Operation",
+        "financialImpact": 5750,
+        "details": {
+          "supplier": "National Wholesale Distributors Pvt Ltd",
+          "items": [
+            {
+              "productId": "biz-medical-demo-p3",
+              "name": "Pan 40 Tablet (Strip of 15)",
+              "reorderQty": 25
+            },
+            {
+              "productId": "biz-medical-demo-p3",
+              "name": "Pan 40 Tablet (Strip of 15)",
+              "reorderQty": 25
+            }
+          ]
+        }
+      },
+      "approvalId": "appr-1794633738819",
+      "createdAt": "2026-11-14T05:22:18.821Z"
+    },
+    {
+      "id": "tsk-1794633738816",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "agentType": "Orchestrator",
+      "title": "Analysis for: \"How much did I sell today?\"",
+      "prompt": "How much did I sell today?",
+      "response": "Financial review complete: Today's sales stand at ₹1,976.2, with an overall net profit of ₹-53,301.8 after all recorded expenses.",
+      "status": "Completed",
+      "requiresApproval": false,
+      "createdAt": "2026-11-14T05:22:18.816Z"
+    },
+    {
+      "id": "tsk-1794633661447",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "agentType": "Inventory Intelligence Agent",
+      "title": "Restock Order PO for 1 Low-Stock Items",
+      "prompt": "Which products are running low?",
+      "response": "Inventory check complete: 1 items require replenishment. A restocking plan has been drafted for your approval.",
+      "status": "Approved",
+      "requiresApproval": true,
+      "actionPayload": {
+        "action": "CREATE_PURCHASE_ORDER",
+        "entity": "Operation",
+        "financialImpact": 2875,
+        "details": {
+          "supplier": "National Wholesale Distributors Pvt Ltd",
+          "items": [
+            {
+              "productId": "biz-medical-demo-p3",
+              "name": "Pan 40 Tablet (Strip of 15)",
+              "reorderQty": 25
+            }
+          ]
+        }
+      },
+      "approvalId": "appr-1794633661447",
+      "createdAt": "2026-11-14T05:21:01.450Z"
+    },
+    {
+      "id": "tsk-1794633661443",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "agentType": "Orchestrator",
+      "title": "Analysis for: \"How much did I sell today?\"",
+      "prompt": "How much did I sell today?",
+      "response": "Financial review complete: Today's sales stand at ₹988.1, with an overall net profit of ₹-26,650.9 after all recorded expenses.",
+      "status": "Completed",
+      "requiresApproval": false,
+      "createdAt": "2026-11-14T05:21:01.443Z"
+    },
+    {
+      "id": "biz-grocery-demo-tsk-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "agentType": "Inventory",
+      "title": "Stock Shortage Detected & Auto-Restock Order Drafted",
+      "prompt": "Monitor inventory levels and identify items below reorder thresholds",
+      "response": "Detected 3 items falling below safety threshold. Drafted Purchase Order for National Wholesale Distributors.",
+      "status": "Awaiting Approval",
+      "requiresApproval": true,
+      "actionPayload": {
+        "action": "CREATE_PURCHASE_ORDER",
+        "entity": "PurchaseOrder",
+        "financialImpact": 8400,
+        "details": {
+          "supplier": "National Wholesale Distributors Pvt Ltd",
+          "items": [
+            {
+              "item": "Fortune Sunlite Sunflower Oil 1L",
+              "qty": 24,
+              "estCost": 2900
+            },
+            {
+              "item": "Amul Taaza Toned Milk 500ml",
+              "qty": 50,
+              "estCost": 5500
+            }
+          ]
+        }
+      },
+      "approvalId": "biz-grocery-demo-appr-1",
+      "createdAt": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-grocery-demo-tsk-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "agentType": "Financial",
+      "title": "Gross Margin & Cash Flow Health Summary",
+      "prompt": "Calculate real month-to-date profit margin, receivables, and payables",
+      "response": "MTD Gross Margin is healthy at 24.8%. Total customer credit owed is ₹450 (Anita Desai). Supplier balance due is ₹14,500 due in 7 days.",
+      "status": "Completed",
+      "requiresApproval": false,
+      "createdAt": "2026-11-13T22:09:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-tsk-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "agentType": "Inventory",
+      "title": "Stock Shortage Detected & Auto-Restock Order Drafted",
+      "prompt": "Monitor inventory levels and identify items below reorder thresholds",
+      "response": "Detected 2 items falling below safety threshold. Drafted Purchase Order for National Wholesale Distributors.",
+      "status": "Awaiting Approval",
+      "requiresApproval": true,
+      "actionPayload": {
+        "action": "CREATE_PURCHASE_ORDER",
+        "entity": "PurchaseOrder",
+        "financialImpact": 8400,
+        "details": {
+          "supplier": "National Wholesale Distributors Pvt Ltd",
+          "items": [
+            {
+              "item": "Dum Handi Chicken Biryani",
+              "qty": 24,
+              "estCost": 2900
+            },
+            {
+              "item": "Artisan Hazelnut Cold Coffee",
+              "qty": 50,
+              "estCost": 5500
+            }
+          ]
+        }
+      },
+      "approvalId": "biz-food-demo-appr-1",
+      "createdAt": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-tsk-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "agentType": "Financial",
+      "title": "Gross Margin & Cash Flow Health Summary",
+      "prompt": "Calculate real month-to-date profit margin, receivables, and payables",
+      "response": "MTD Gross Margin is healthy at 24.8%. Total customer credit owed is ₹450 (Anita Desai). Supplier balance due is ₹14,500 due in 7 days.",
+      "status": "Completed",
+      "requiresApproval": false,
+      "createdAt": "2026-11-13T22:09:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-tsk-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "agentType": "Inventory",
+      "title": "Stock Shortage Detected & Auto-Restock Order Drafted",
+      "prompt": "Monitor inventory levels and identify items below reorder thresholds",
+      "response": "Detected 2 items falling below safety threshold. Drafted Purchase Order for National Wholesale Distributors.",
+      "status": "Awaiting Approval",
+      "requiresApproval": true,
+      "actionPayload": {
+        "action": "CREATE_PURCHASE_ORDER",
+        "entity": "PurchaseOrder",
+        "financialImpact": 8400,
+        "details": {
+          "supplier": "National Wholesale Distributors Pvt Ltd",
+          "items": [
+            {
+              "item": "Chanderi Silk Anarkali Kurta Set with Dupatta (Teal - Size L)",
+              "qty": 24,
+              "estCost": 2900
+            },
+            {
+              "item": "Comfort Fit Stretch Denim Jeans (Dark Indigo - Size 32)",
+              "qty": 50,
+              "estCost": 5500
+            }
+          ]
+        }
+      },
+      "approvalId": "biz-clothing-demo-appr-1",
+      "createdAt": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-tsk-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "agentType": "Financial",
+      "title": "Gross Margin & Cash Flow Health Summary",
+      "prompt": "Calculate real month-to-date profit margin, receivables, and payables",
+      "response": "MTD Gross Margin is healthy at 24.8%. Total customer credit owed is ₹450 (Anita Desai). Supplier balance due is ₹14,500 due in 7 days.",
+      "status": "Completed",
+      "requiresApproval": false,
+      "createdAt": "2026-11-13T22:09:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-tsk-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "agentType": "Inventory",
+      "title": "Stock Shortage Detected & Auto-Restock Order Drafted",
+      "prompt": "Monitor inventory levels and identify items below reorder thresholds",
+      "response": "Detected 2 items falling below safety threshold. Drafted Purchase Order for National Wholesale Distributors.",
+      "status": "Awaiting Approval",
+      "requiresApproval": true,
+      "actionPayload": {
+        "action": "CREATE_PURCHASE_ORDER",
+        "entity": "PurchaseOrder",
+        "financialImpact": 8400,
+        "details": {
+          "supplier": "National Wholesale Distributors Pvt Ltd",
+          "items": [
+            {
+              "item": "Apple 20W USB-C Power Adapter (Original)",
+              "qty": 24,
+              "estCost": 2900
+            },
+            {
+              "item": "Inventory Item B",
+              "qty": 50,
+              "estCost": 5500
+            }
+          ]
+        }
+      },
+      "approvalId": "biz-electronics-demo-appr-1",
+      "createdAt": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-tsk-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "agentType": "Financial",
+      "title": "Gross Margin & Cash Flow Health Summary",
+      "prompt": "Calculate real month-to-date profit margin, receivables, and payables",
+      "response": "MTD Gross Margin is healthy at 24.8%. Total customer credit owed is ₹450 (Anita Desai). Supplier balance due is ₹14,500 due in 7 days.",
+      "status": "Completed",
+      "requiresApproval": false,
+      "createdAt": "2026-11-13T22:09:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-tsk-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "agentType": "Inventory",
+      "title": "Stock Shortage Detected & Auto-Restock Order Drafted",
+      "prompt": "Monitor inventory levels and identify items below reorder thresholds",
+      "response": "Detected 2 items falling below safety threshold. Drafted Purchase Order for National Wholesale Distributors.",
+      "status": "Awaiting Approval",
+      "requiresApproval": true,
+      "actionPayload": {
+        "action": "CREATE_PURCHASE_ORDER",
+        "entity": "PurchaseOrder",
+        "financialImpact": 8400,
+        "details": {
+          "supplier": "National Wholesale Distributors Pvt Ltd",
+          "items": [
+            {
+              "item": "Inventory Item A",
+              "qty": 24,
+              "estCost": 2900
+            },
+            {
+              "item": "Inventory Item B",
+              "qty": 50,
+              "estCost": 5500
+            }
+          ]
+        }
+      },
+      "approvalId": "biz-salon-demo-appr-1",
+      "createdAt": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-tsk-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "agentType": "Financial",
+      "title": "Gross Margin & Cash Flow Health Summary",
+      "prompt": "Calculate real month-to-date profit margin, receivables, and payables",
+      "response": "MTD Gross Margin is healthy at 24.8%. Total customer credit owed is ₹450 (Anita Desai). Supplier balance due is ₹14,500 due in 7 days.",
+      "status": "Completed",
+      "requiresApproval": false,
+      "createdAt": "2026-11-13T22:09:01.275Z"
+    },
+    {
+      "id": "biz-medical-demo-tsk-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "agentType": "Inventory",
+      "title": "Stock Shortage Detected & Auto-Restock Order Drafted",
+      "prompt": "Monitor inventory levels and identify items below reorder thresholds",
+      "response": "Detected 1 items falling below safety threshold. Drafted Purchase Order for National Wholesale Distributors.",
+      "status": "Awaiting Approval",
+      "requiresApproval": true,
+      "actionPayload": {
+        "action": "CREATE_PURCHASE_ORDER",
+        "entity": "PurchaseOrder",
+        "financialImpact": 8400,
+        "details": {
+          "supplier": "National Wholesale Distributors Pvt Ltd",
+          "items": [
+            {
+              "item": "Dolo 650mg Tablet (Strip of 15)",
+              "qty": 24,
+              "estCost": 2900
+            },
+            {
+              "item": "Pan 40 Tablet (Strip of 15)",
+              "qty": 50,
+              "estCost": 5500
+            }
+          ]
+        }
+      },
+      "approvalId": "biz-medical-demo-appr-1",
+      "createdAt": "2026-11-14T02:57:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-tsk-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "agentType": "Financial",
+      "title": "Gross Margin & Cash Flow Health Summary",
+      "prompt": "Calculate real month-to-date profit margin, receivables, and payables",
+      "response": "MTD Gross Margin is healthy at 24.8%. Total customer credit owed is ₹450 (Anita Desai). Supplier balance due is ₹14,500 due in 7 days.",
+      "status": "Completed",
+      "requiresApproval": false,
+      "createdAt": "2026-11-13T22:09:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-tsk-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "agentType": "Inventory",
+      "title": "Stock Shortage Detected & Auto-Restock Order Drafted",
+      "prompt": "Monitor inventory levels and identify items below reorder thresholds",
+      "response": "Detected 1 items falling below safety threshold. Drafted Purchase Order for National Wholesale Distributors.",
+      "status": "Awaiting Approval",
+      "requiresApproval": true,
+      "actionPayload": {
+        "action": "CREATE_PURCHASE_ORDER",
+        "entity": "PurchaseOrder",
+        "financialImpact": 8400,
+        "details": {
+          "supplier": "National Wholesale Distributors Pvt Ltd",
+          "items": [
+            {
+              "item": "Dolo 650mg Tablet (Strip of 15)",
+              "qty": 24,
+              "estCost": 2900
+            },
+            {
+              "item": "Pan 40 Tablet (Strip of 15)",
+              "qty": 50,
+              "estCost": 5500
+            }
+          ]
+        }
+      },
+      "approvalId": "biz-medical-demo-appr-1",
+      "createdAt": "2026-11-14T02:58:18.791Z"
+    },
+    {
+      "id": "biz-medical-demo-tsk-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "agentType": "Financial",
+      "title": "Gross Margin & Cash Flow Health Summary",
+      "prompt": "Calculate real month-to-date profit margin, receivables, and payables",
+      "response": "MTD Gross Margin is healthy at 24.8%. Total customer credit owed is ₹450 (Anita Desai). Supplier balance due is ₹14,500 due in 7 days.",
+      "status": "Completed",
+      "requiresApproval": false,
+      "createdAt": "2026-11-13T22:10:18.791Z"
+    }
+  ],
+  "approvals": [
+    {
+      "id": "appr-1794633738819",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "taskId": "tsk-1794633738819",
+      "agentType": "Inventory Intelligence Agent",
+      "actionTitle": "Restock Order PO for 2 Low-Stock Items",
+      "description": "Create purchase order to National Wholesale Distributors Pvt Ltd for ₹5,750 to replenish inventory to optimal levels.",
+      "impactAmount": 5750,
+      "status": "Approved",
+      "requestedAt": "2026-11-14T05:22:18.819Z",
+      "resolvedAt": "2026-11-14T05:22:18.824Z",
+      "resolvedBy": "Sunil Kumar (Owner)"
+    },
+    {
+      "id": "appr-1794633661447",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "taskId": "tsk-1794633661447",
+      "agentType": "Inventory Intelligence Agent",
+      "actionTitle": "Restock Order PO for 1 Low-Stock Items",
+      "description": "Create purchase order to National Wholesale Distributors Pvt Ltd for ₹2,875 to replenish inventory to optimal levels.",
+      "impactAmount": 2875,
+      "status": "Approved",
+      "requestedAt": "2026-11-14T05:21:01.447Z",
+      "resolvedAt": "2026-11-14T05:21:01.453Z",
+      "resolvedBy": "Sunil Kumar (Owner)"
+    },
+    {
+      "id": "biz-grocery-demo-appr-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "taskId": "biz-grocery-demo-tsk-1",
+      "agentType": "Inventory Intelligence Agent",
+      "actionTitle": "Restock PO for Low-Stock Items",
+      "description": "Authorize Purchase Order #PO-2024-041 to National Wholesale Distributors for ₹8,400 to prevent stockouts.",
+      "impactAmount": 8400,
+      "status": "Pending",
+      "requestedAt": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-appr-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "taskId": "biz-food-demo-tsk-1",
+      "agentType": "Inventory Intelligence Agent",
+      "actionTitle": "Restock PO for Low-Stock Items",
+      "description": "Authorize Purchase Order #PO-2024-041 to National Wholesale Distributors for ₹8,400 to prevent stockouts.",
+      "impactAmount": 8400,
+      "status": "Pending",
+      "requestedAt": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-appr-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "taskId": "biz-clothing-demo-tsk-1",
+      "agentType": "Inventory Intelligence Agent",
+      "actionTitle": "Restock PO for Low-Stock Items",
+      "description": "Authorize Purchase Order #PO-2024-041 to National Wholesale Distributors for ₹8,400 to prevent stockouts.",
+      "impactAmount": 8400,
+      "status": "Pending",
+      "requestedAt": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-appr-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "taskId": "biz-electronics-demo-tsk-1",
+      "agentType": "Inventory Intelligence Agent",
+      "actionTitle": "Restock PO for Low-Stock Items",
+      "description": "Authorize Purchase Order #PO-2024-041 to National Wholesale Distributors for ₹8,400 to prevent stockouts.",
+      "impactAmount": 8400,
+      "status": "Pending",
+      "requestedAt": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-appr-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "taskId": "biz-salon-demo-tsk-1",
+      "agentType": "Inventory Intelligence Agent",
+      "actionTitle": "Restock PO for Low-Stock Items",
+      "description": "Authorize Purchase Order #PO-2024-041 to National Wholesale Distributors for ₹8,400 to prevent stockouts.",
+      "impactAmount": 8400,
+      "status": "Pending",
+      "requestedAt": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-medical-demo-appr-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "taskId": "biz-medical-demo-tsk-1",
+      "agentType": "Inventory Intelligence Agent",
+      "actionTitle": "Restock PO for Low-Stock Items",
+      "description": "Authorize Purchase Order #PO-2024-041 to National Wholesale Distributors for ₹8,400 to prevent stockouts.",
+      "impactAmount": 8400,
+      "status": "Pending",
+      "requestedAt": "2026-11-14T02:57:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-appr-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "taskId": "biz-medical-demo-tsk-1",
+      "agentType": "Inventory Intelligence Agent",
+      "actionTitle": "Restock PO for Low-Stock Items",
+      "description": "Authorize Purchase Order #PO-2024-041 to National Wholesale Distributors for ₹8,400 to prevent stockouts.",
+      "impactAmount": 8400,
+      "status": "Pending",
+      "requestedAt": "2026-11-14T02:58:18.791Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "aud-1794633738824",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "action": "APPROVAL_GRANTED",
+      "entityType": "ApprovalRequest",
+      "entityId": "appr-1794633738819",
+      "actorName": "Sunil Kumar (Owner)",
+      "actorRole": "owner",
+      "details": {
+        "actionTitle": "Restock Order PO for 2 Low-Stock Items",
+        "impactAmount": 5750
+      },
+      "timestamp": "2026-11-14T05:22:18.824Z"
+    },
+    {
+      "id": "aud-1794633738798",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "action": "EXPENSE_RECORDED",
+      "entityType": "Expense",
+      "entityId": "exp-test-1794633738798",
+      "actorName": "Owner",
+      "actorRole": "owner",
+      "details": {
+        "category": "Utilities",
+        "amount": 3500
+      },
+      "timestamp": "2026-11-14T05:22:18.798Z"
+    },
+    {
+      "id": "aud-1794633738796",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "action": "SALE_RECORDED",
+      "entityType": "Sale",
+      "entityId": "sale-test-1794633738796",
+      "actorName": "Staff Pharmacist",
+      "actorRole": "staff",
+      "details": {
+        "invoiceNumber": "INV-TEST-8796",
+        "totalAmount": 422.1,
+        "paymentMethod": "UPI"
+      },
+      "timestamp": "2026-11-14T05:22:18.796Z"
+    },
+    {
+      "id": "aud-1794633661453",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "action": "APPROVAL_GRANTED",
+      "entityType": "ApprovalRequest",
+      "entityId": "appr-1794633661447",
+      "actorName": "Sunil Kumar (Owner)",
+      "actorRole": "owner",
+      "details": {
+        "actionTitle": "Restock Order PO for 1 Low-Stock Items",
+        "impactAmount": 2875
+      },
+      "timestamp": "2026-11-14T05:21:01.453Z"
+    },
+    {
+      "id": "aud-1794633661286",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "action": "EXPENSE_RECORDED",
+      "entityType": "Expense",
+      "entityId": "exp-test-1794633661286",
+      "actorName": "Owner",
+      "actorRole": "owner",
+      "details": {
+        "category": "Utilities",
+        "amount": 3500
+      },
+      "timestamp": "2026-11-14T05:21:01.286Z"
+    },
+    {
+      "id": "aud-1794633661283",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "action": "SALE_RECORDED",
+      "entityType": "Sale",
+      "entityId": "sale-test-1794633661283",
+      "actorName": "Staff Pharmacist",
+      "actorRole": "staff",
+      "details": {
+        "invoiceNumber": "INV-TEST-1283",
+        "totalAmount": 422.1,
+        "paymentMethod": "UPI"
+      },
+      "timestamp": "2026-11-14T05:21:01.283Z"
+    },
+    {
+      "id": "biz-grocery-demo-aud-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "action": "SALE_RECORDED",
+      "entityType": "Sale",
+      "entityId": "biz-grocery-demo-sale-1",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "invoice": "INV-2024-001",
+        "amount": 1000,
+        "payment": "UPI"
+      },
+      "timestamp": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-grocery-demo-aud-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "action": "EXPENSE_LOGGED",
+      "entityType": "Expense",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "category": "Utilities",
+        "amount": 4250
+      },
+      "timestamp": "2026-11-05T12:00:00Z"
+    },
+    {
+      "id": "biz-grocery-demo-aud-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "action": "AI_RESTOCK_PLAN_PREPARED",
+      "entityType": "AgentTask",
+      "actorName": "Inventory Intelligence Agent",
+      "actorRole": "system_ai",
+      "details": {
+        "itemsFlagged": 2,
+        "estimatedCost": 8400
+      },
+      "timestamp": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-food-demo-aud-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "action": "SALE_RECORDED",
+      "entityType": "Sale",
+      "entityId": "biz-food-demo-sale-1",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "invoice": "INV-2024-001",
+        "amount": 610,
+        "payment": "UPI"
+      },
+      "timestamp": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-food-demo-aud-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "action": "EXPENSE_LOGGED",
+      "entityType": "Expense",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "category": "Utilities",
+        "amount": 4250
+      },
+      "timestamp": "2026-11-05T12:00:00Z"
+    },
+    {
+      "id": "biz-food-demo-aud-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "action": "AI_RESTOCK_PLAN_PREPARED",
+      "entityType": "AgentTask",
+      "actorName": "Inventory Intelligence Agent",
+      "actorRole": "system_ai",
+      "details": {
+        "itemsFlagged": 2,
+        "estimatedCost": 8400
+      },
+      "timestamp": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-clothing-demo-aud-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "action": "SALE_RECORDED",
+      "entityType": "Sale",
+      "entityId": "biz-clothing-demo-sale-1",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "invoice": "INV-2024-001",
+        "amount": 2448,
+        "payment": "UPI"
+      },
+      "timestamp": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-clothing-demo-aud-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "action": "EXPENSE_LOGGED",
+      "entityType": "Expense",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "category": "Utilities",
+        "amount": 4250
+      },
+      "timestamp": "2026-11-05T12:00:00Z"
+    },
+    {
+      "id": "biz-clothing-demo-aud-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "action": "AI_RESTOCK_PLAN_PREPARED",
+      "entityType": "AgentTask",
+      "actorName": "Inventory Intelligence Agent",
+      "actorRole": "system_ai",
+      "details": {
+        "itemsFlagged": 2,
+        "estimatedCost": 8400
+      },
+      "timestamp": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-electronics-demo-aud-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "action": "SALE_RECORDED",
+      "entityType": "Sale",
+      "entityId": "biz-electronics-demo-sale-1",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "invoice": "INV-2024-001",
+        "amount": 56048,
+        "payment": "UPI"
+      },
+      "timestamp": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-electronics-demo-aud-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "action": "EXPENSE_LOGGED",
+      "entityType": "Expense",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "category": "Utilities",
+        "amount": 4250
+      },
+      "timestamp": "2026-11-05T12:00:00Z"
+    },
+    {
+      "id": "biz-electronics-demo-aud-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "action": "AI_RESTOCK_PLAN_PREPARED",
+      "entityType": "AgentTask",
+      "actorName": "Inventory Intelligence Agent",
+      "actorRole": "system_ai",
+      "details": {
+        "itemsFlagged": 2,
+        "estimatedCost": 8400
+      },
+      "timestamp": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-salon-demo-aud-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "action": "SALE_RECORDED",
+      "entityType": "Sale",
+      "entityId": "biz-salon-demo-sale-1",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "invoice": "INV-2024-001",
+        "amount": 1050,
+        "payment": "UPI"
+      },
+      "timestamp": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-salon-demo-aud-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "action": "EXPENSE_LOGGED",
+      "entityType": "Expense",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "category": "Utilities",
+        "amount": 4250
+      },
+      "timestamp": "2026-11-05T12:00:00Z"
+    },
+    {
+      "id": "biz-salon-demo-aud-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "action": "AI_RESTOCK_PLAN_PREPARED",
+      "entityType": "AgentTask",
+      "actorName": "Inventory Intelligence Agent",
+      "actorRole": "system_ai",
+      "details": {
+        "itemsFlagged": 2,
+        "estimatedCost": 8400
+      },
+      "timestamp": "2026-11-14T02:57:01.275Z"
+    },
+    {
+      "id": "biz-medical-demo-aud-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "action": "SALE_RECORDED",
+      "entityType": "Sale",
+      "entityId": "biz-medical-demo-sale-1",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "invoice": "INV-2024-001",
+        "amount": 452,
+        "payment": "UPI"
+      },
+      "timestamp": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-medical-demo-aud-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "action": "EXPENSE_LOGGED",
+      "entityType": "Expense",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "category": "Utilities",
+        "amount": 4250
+      },
+      "timestamp": "2026-11-05T12:00:00Z"
+    },
+    {
+      "id": "biz-medical-demo-aud-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "action": "AI_RESTOCK_PLAN_PREPARED",
+      "entityType": "AgentTask",
+      "actorName": "Inventory Intelligence Agent",
+      "actorRole": "system_ai",
+      "details": {
+        "itemsFlagged": 2,
+        "estimatedCost": 8400
+      },
+      "timestamp": "2026-11-14T02:57:01.280Z"
+    },
+    {
+      "id": "biz-medical-demo-aud-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "action": "SALE_RECORDED",
+      "entityType": "Sale",
+      "entityId": "biz-medical-demo-sale-1",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "invoice": "INV-2024-001",
+        "amount": 452,
+        "payment": "UPI"
+      },
+      "timestamp": "2026-11-14T09:30:00Z"
+    },
+    {
+      "id": "biz-medical-demo-aud-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "action": "EXPENSE_LOGGED",
+      "entityType": "Expense",
+      "actorName": "Sunil Kumar",
+      "actorRole": "owner",
+      "details": {
+        "category": "Utilities",
+        "amount": 4250
+      },
+      "timestamp": "2026-11-05T12:00:00Z"
+    },
+    {
+      "id": "biz-medical-demo-aud-3",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "action": "AI_RESTOCK_PLAN_PREPARED",
+      "entityType": "AgentTask",
+      "actorName": "Inventory Intelligence Agent",
+      "actorRole": "system_ai",
+      "details": {
+        "itemsFlagged": 2,
+        "estimatedCost": 8400
+      },
+      "timestamp": "2026-11-14T02:58:18.791Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "biz-grocery-demo-notif-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "title": "Action Awaiting Approval",
+      "message": "Inventory Agent prepared a ₹8,400 restock order for low-stock items. Review in AI Approvals.",
+      "type": "warning",
+      "read": false,
+      "createdAt": "2026-11-14T02:57:01.275Z",
+      "link": "/approvals"
+    },
+    {
+      "id": "biz-grocery-demo-notif-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-grocery-demo",
+      "title": "Payment Received",
+      "message": "Sale #INV-2024-001 of ₹1,050 marked paid via UPI instant settlement.",
+      "type": "success",
+      "read": true,
+      "createdAt": "2026-11-14T09:31:00Z",
+      "link": "/sales"
+    },
+    {
+      "id": "biz-food-demo-notif-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "title": "Action Awaiting Approval",
+      "message": "Inventory Agent prepared a ₹8,400 restock order for low-stock items. Review in AI Approvals.",
+      "type": "warning",
+      "read": false,
+      "createdAt": "2026-11-14T02:57:01.275Z",
+      "link": "/approvals"
+    },
+    {
+      "id": "biz-food-demo-notif-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-food-demo",
+      "title": "Payment Received",
+      "message": "Sale #INV-2024-001 of ₹1,050 marked paid via UPI instant settlement.",
+      "type": "success",
+      "read": true,
+      "createdAt": "2026-11-14T09:31:00Z",
+      "link": "/sales"
+    },
+    {
+      "id": "biz-clothing-demo-notif-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "title": "Action Awaiting Approval",
+      "message": "Inventory Agent prepared a ₹8,400 restock order for low-stock items. Review in AI Approvals.",
+      "type": "warning",
+      "read": false,
+      "createdAt": "2026-11-14T02:57:01.275Z",
+      "link": "/approvals"
+    },
+    {
+      "id": "biz-clothing-demo-notif-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-clothing-demo",
+      "title": "Payment Received",
+      "message": "Sale #INV-2024-001 of ₹1,050 marked paid via UPI instant settlement.",
+      "type": "success",
+      "read": true,
+      "createdAt": "2026-11-14T09:31:00Z",
+      "link": "/sales"
+    },
+    {
+      "id": "biz-electronics-demo-notif-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "title": "Action Awaiting Approval",
+      "message": "Inventory Agent prepared a ₹8,400 restock order for low-stock items. Review in AI Approvals.",
+      "type": "warning",
+      "read": false,
+      "createdAt": "2026-11-14T02:57:01.275Z",
+      "link": "/approvals"
+    },
+    {
+      "id": "biz-electronics-demo-notif-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-electronics-demo",
+      "title": "Payment Received",
+      "message": "Sale #INV-2024-001 of ₹1,050 marked paid via UPI instant settlement.",
+      "type": "success",
+      "read": true,
+      "createdAt": "2026-11-14T09:31:00Z",
+      "link": "/sales"
+    },
+    {
+      "id": "biz-salon-demo-notif-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "title": "Action Awaiting Approval",
+      "message": "Inventory Agent prepared a ₹8,400 restock order for low-stock items. Review in AI Approvals.",
+      "type": "warning",
+      "read": false,
+      "createdAt": "2026-11-14T02:57:01.275Z",
+      "link": "/approvals"
+    },
+    {
+      "id": "biz-salon-demo-notif-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-salon-demo",
+      "title": "Payment Received",
+      "message": "Sale #INV-2024-001 of ₹1,050 marked paid via UPI instant settlement.",
+      "type": "success",
+      "read": true,
+      "createdAt": "2026-11-14T09:31:00Z",
+      "link": "/sales"
+    },
+    {
+      "id": "biz-medical-demo-notif-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "title": "Action Awaiting Approval",
+      "message": "Inventory Agent prepared a ₹8,400 restock order for low-stock items. Review in AI Approvals.",
+      "type": "warning",
+      "read": false,
+      "createdAt": "2026-11-14T02:57:01.280Z",
+      "link": "/approvals"
+    },
+    {
+      "id": "biz-medical-demo-notif-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "title": "Payment Received",
+      "message": "Sale #INV-2024-001 of ₹1,050 marked paid via UPI instant settlement.",
+      "type": "success",
+      "read": true,
+      "createdAt": "2026-11-14T09:31:00Z",
+      "link": "/sales"
+    },
+    {
+      "id": "biz-medical-demo-notif-1",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "title": "Action Awaiting Approval",
+      "message": "Inventory Agent prepared a ₹8,400 restock order for low-stock items. Review in AI Approvals.",
+      "type": "warning",
+      "read": false,
+      "createdAt": "2026-11-14T02:58:18.791Z",
+      "link": "/approvals"
+    },
+    {
+      "id": "biz-medical-demo-notif-2",
+      "orgId": "org-demo-1",
+      "businessId": "biz-medical-demo",
+      "title": "Payment Received",
+      "message": "Sale #INV-2024-001 of ₹1,050 marked paid via UPI instant settlement.",
+      "type": "success",
+      "read": true,
+      "createdAt": "2026-11-14T09:31:00Z",
+      "link": "/sales"
+    }
+  ]
+}
