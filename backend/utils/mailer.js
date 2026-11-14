@@ -7,35 +7,26 @@ async function getTransporter() {
 
   // Check if real SMTP credentials are provided in env
   if (process.env.SMTP_HOST && process.env.SMTP_USER && process.env.SMTP_PASS) {
-    transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT) || 587,
-      secure: Number(process.env.SMTP_PORT) === 465,
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-    return transporter;
+    try {
+      transporter = nodemailer.createTransport({
+        host: process.env.SMTP_HOST,
+        port: Number(process.env.SMTP_PORT) || 587,
+        secure: Number(process.env.SMTP_PORT) === 465,
+        auth: {
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASS,
+        },
+      });
+      return transporter;
+    } catch (e) {
+      console.warn('[BizPilot Mailer] Failed to initialize SMTP transporter:', e.message);
+    }
   }
 
-  // Fallback to test account or json transporter
-  try {
-    const testAccount = await nodemailer.createTestAccount();
-    transporter = nodemailer.createTransport({
-      host: testAccount.smtp.host,
-      port: testAccount.smtp.port,
-      secure: testAccount.smtp.secure,
-      auth: {
-        user: testAccount.user,
-        pass: testAccount.pass,
-      },
-    });
-  } catch (err) {
-    transporter = nodemailer.createTransport({
-      jsonTransport: true,
-    });
-  }
+  // Fallback to offline/json transporter (0 network calls, 0 timeout, 100% reliable)
+  transporter = nodemailer.createTransport({
+    jsonTransport: true,
+  });
 
   return transporter;
 }

@@ -1,15 +1,15 @@
 const { z } = require('zod');
 
 const signUpSchema = z.object({
-  fullName: z.string().min(2, 'Full name must be at least 2 characters'),
+  fullName: z.string().optional().default('Business Owner'),
   email: z.string().email('Invalid email address'),
-  mobile: z.string().min(7, 'Mobile number must be valid with country code'),
-  password: z.string().min(6, 'Password must be at least 6 characters'),
+  mobile: z.string().optional().default(''),
+  password: z.string().optional().default(''),
 });
 
 const signInSchema = z.object({
-  emailOrMobile: z.string().min(1, 'Email or mobile is required'),
-  password: z.string().min(1, 'Password is required'),
+  emailOrMobile: z.string().min(1, 'Email is required'),
+  password: z.string().optional().default(''),
 });
 
 const onboardingSchema = z.object({

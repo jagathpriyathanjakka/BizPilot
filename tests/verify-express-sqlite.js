@@ -166,6 +166,45 @@ async function runTests() {
     }
   });
 
+  // 2d. 1-Click Continue with Google / Gmail (No Password Required)
+  await testStep('2d. 1-Click Continue with Google / Gmail (/api/auth/google)', async () => {
+    const googleEmail = `google_owner_${Date.now()}@gmail.com`;
+    const res = await dispatch({
+      method: 'POST',
+      url: '/api/auth/google',
+      body: {
+        email: googleEmail,
+        fullName: 'Google Business Owner',
+      },
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(JSON.stringify(err));
+    }
+    const data = await res.json();
+    if (!data.token) throw new Error('JWT token not returned for Google sign-in');
+    if (data.user.email !== googleEmail) throw new Error('Google email mismatch');
+  });
+
+  // 2e. Continue Manually with Email (Passwordless OTP Request)
+  await testStep('2e. Passwordless Email Request Code (/api/auth/request-code)', async () => {
+    const manualEmail = `manual_owner_${Date.now()}@bizpilot.ai`;
+    const res = await dispatch({
+      method: 'POST',
+      url: '/api/auth/request-code',
+      body: {
+        email: manualEmail,
+        fullName: 'Manual Owner',
+      },
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(JSON.stringify(err));
+    }
+    const data = await res.json();
+    if (!data.requiresVerification) throw new Error('requiresVerification should be true');
+  });
+
   // 3. User Sign In with Email & Password
   await testStep('3. User Sign In with Email & Password (/api/auth/signin)', async () => {
     const res = await dispatch({
