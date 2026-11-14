@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
-import { Mail, CheckCircle, ArrowRight, RefreshCw, Sparkles, ShieldCheck } from 'lucide-react';
+import { Mail, CheckCircle, ArrowRight, RefreshCw } from 'lucide-react';
 import { api, setToken } from '../api';
 
 export default function VerifyEmailPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const emailFromUrl = searchParams.get('email') || '';
-  const demoCodeFromUrl = searchParams.get('code') || '';
 
   const [email, setEmail] = useState(emailFromUrl);
-  const [code, setCode] = useState(demoCodeFromUrl || '');
+  const [code, setCode] = useState('');
   const [loading, setLoading] = useState(false);
   const [resending, setResending] = useState(false);
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
-  const [demoCode, setDemoCode] = useState(demoCodeFromUrl);
 
   const handleVerify = async (e) => {
     e.preventDefault();
@@ -23,7 +21,7 @@ export default function VerifyEmailPage() {
     const cleanCode = code.trim();
 
     if (!cleanEmail || !cleanCode) {
-      setError('Please enter your email and 6-digit verification code');
+      setError('Please enter your email and 6-digit confirmation code');
       return;
     }
 
@@ -36,7 +34,7 @@ export default function VerifyEmailPage() {
       if (res.token) {
         setToken(res.token);
       }
-      setSuccessMsg('Email successfully verified! Redirecting...');
+      setSuccessMsg('Email successfully verified! Redirecting to your workspace...');
       setTimeout(() => {
         if (res.onboardingComplete) {
           navigate('/');
@@ -62,24 +60,12 @@ export default function VerifyEmailPage() {
     setSuccessMsg('');
     try {
       const res = await api.resendVerificationCode({ email: cleanEmail });
-      setSuccessMsg(res.message || 'A new verification code has been dispatched.');
-      if (res.demoCode) {
-        setDemoCode(res.demoCode);
-        setCode(res.demoCode);
-      }
+      setSuccessMsg(res.message || 'A new verification code has been dispatched to your email.');
     } catch (err) {
       setError(err.message || 'Failed to resend code');
     } finally {
       setResending(false);
     }
-  };
-
-  const fillDemoCredentials = () => {
-    setEmail('owner@bizpilot.ai');
-    setCode('123456');
-    setDemoCode('123456');
-    setError('');
-    setSuccessMsg('');
   };
 
   return (
@@ -95,7 +81,7 @@ export default function VerifyEmailPage() {
           </div>
           <h2 className="text-2xl font-bold text-white tracking-tight">Verify Your Email Address</h2>
           <p className="text-xs text-slate-400">
-            Please enter the 6-digit confirmation code sent to <strong className="text-white">{email.trim() || 'your email'}</strong>
+            Please check your inbox and enter the 6-digit confirmation code sent to <strong className="text-white">{email.trim() || 'your email'}</strong>
           </p>
         </div>
 
@@ -115,7 +101,7 @@ export default function VerifyEmailPage() {
             )}
 
             <div>
-              <label className="text-slate-300 font-semibold block mb-1">Registered Email *</label>
+              <label className="text-slate-300 font-semibold block mb-1">Registered Email</label>
               <input
                 required
                 type="email"
@@ -127,19 +113,12 @@ export default function VerifyEmailPage() {
             </div>
 
             <div>
-              <div className="flex items-center justify-between mb-1.5">
-                <label className="text-slate-300 font-semibold">6-Digit Code</label>
-                {demoCode && (
-                  <span className="text-[10px] font-mono font-bold text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded-full border border-cyan-500/20">
-                    Active Code: {demoCode}
-                  </span>
-                )}
-              </div>
+              <label className="text-slate-300 font-semibold block mb-1.5">6-Digit Confirmation Code</label>
               <input
                 required
                 type="text"
                 maxLength={6}
-                placeholder="123456"
+                placeholder="••••••"
                 value={code}
                 onChange={(e) => setCode(e.target.value)}
                 className="w-full text-center tracking-[0.5em] text-xl font-bold py-3 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-violet-500"
@@ -151,25 +130,13 @@ export default function VerifyEmailPage() {
               disabled={loading}
               className="w-full mt-2 py-3 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 hover:opacity-95 text-white font-bold text-xs tracking-wide shadow-glow transition-all active:scale-95 flex items-center justify-center gap-2"
             >
-              <span>{loading ? 'Verifying...' : 'Verify & Continue'}</span>
+              <span>{loading ? 'Verifying...' : 'Verify & Activate Workspace'}</span>
               <ArrowRight className="h-4 w-4" />
             </button>
           </form>
 
-          {/* Quick Demo Verification Helper */}
-          <div className="mt-4 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-center text-[11px] text-slate-400">
-            <span>Demo: </span>
-            <button
-              type="button"
-              onClick={fillDemoCredentials}
-              className="text-cyan-400 font-mono hover:underline font-semibold"
-            >
-              Fill Demo Code (owner@bizpilot.ai / 123456)
-            </button>
-          </div>
-
-          <div className="mt-4 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
-            <span>Didn't receive the code?</span>
+          <div className="mt-5 pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs text-slate-400">
+            <span>Didn't receive the email?</span>
             <button
               type="button"
               disabled={resending}

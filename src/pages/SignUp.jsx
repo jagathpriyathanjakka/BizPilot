@@ -20,7 +20,7 @@ export default function SignUpPage() {
 
     try {
       const res = await api.signUp({ fullName, email, mobile, password });
-      navigate(`/verify-email?email=${encodeURIComponent(res.email)}&code=${encodeURIComponent(res.demoCode || '')}`);
+      navigate(`/verify-email?email=${encodeURIComponent(res.email)}`);
     } catch (err) {
       setError(err.message || 'Registration failed');
     } finally {

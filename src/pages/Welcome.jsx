@@ -70,7 +70,7 @@ export default function WelcomePage() {
               to="/signin"
               className="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 hover:opacity-95 text-white font-bold text-sm shadow-glow transition-all active:scale-95 flex items-center gap-2"
             >
-              <span>Explore Live Workspace Demo</span>
+              <span>Sign In to Workspace</span>
               <ArrowRight className="h-4 w-4" />
             </Link>
 

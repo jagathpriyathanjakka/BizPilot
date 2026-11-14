@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const { getDb, queryOne, runSql } = require('../db/sqlite');
 const { createToken, authMiddleware } = require('../middleware/auth');
 const { validate, signUpSchema, signInSchema } = require('../middleware/validation');
+const { sendVerificationEmail } = require('../utils/mailer');
 
 const router = express.Router();
 
@@ -19,7 +20,7 @@ router.post('/signup', validate(signUpSchema), async (req, res) => {
     const cleanEmail = email.toLowerCase().trim();
 
     // Check existing user
-    const existing = queryOne(db, 'SELECT * FROM users WHERE email = ?', [cleanEmail]);
+    const existing = queryOne(db, 'SELECT * FROM users WHERE LOWER(email) = ?', [cleanEmail]);
     if (existing) {
       return res.status(409).json({ error: 'An account with this email already exists' });
     }
@@ -60,15 +61,17 @@ router.post('/signup', validate(signUpSchema), async (req, res) => {
       ['aud-' + Date.now().toString(36), orgId, null, 'USER_REGISTERED_PENDING_VERIFICATION', 'User', userId, fullName, 'owner', JSON.stringify({ email: cleanEmail }), now]
     );
 
+    // Send original verification email
+    await sendVerificationEmail({ to: cleanEmail, code: verificationCode, name: fullName });
+
     res.status(201).json({
-      message: 'Account created. Please verify your email with the 6-digit code sent to you.',
+      message: 'Account created. We have dispatched a 6-digit confirmation code to your email address.',
       email: cleanEmail,
       requiresVerification: true,
-      demoCode: verificationCode, // Returned for ease of testing/demo exploration
     });
   } catch (err) {
     console.error('Signup error:', err);
-    res.status(500).json({ error: 'Failed to create user account' });
+    res.status(500).json({ error: err.message || 'Failed to create user account' });
   }
 });
 
@@ -178,10 +181,12 @@ router.post('/resend-code', async (req, res) => {
       [cleanEmail, newCode, expiresAt, now]
     );
 
+    // Send original verification email
+    await sendVerificationEmail({ to: cleanEmail, code: newCode, name: user.full_name });
+
     res.json({
-      message: 'A new 6-digit verification code has been dispatched.',
+      message: `A new 6-digit confirmation code has been dispatched to ${cleanEmail}. Please check your inbox.`,
       email: cleanEmail,
-      demoCode: newCode,
     });
   } catch (err) {
     console.error('Resend code error:', err);

@@ -129,8 +129,11 @@ async function runTests() {
     }
     const data = await res.json();
     if (!data.requiresVerification) throw new Error('requiresVerification should be true');
-    if (!data.demoCode) throw new Error('Verification code not generated');
-    verificationCode = data.demoCode;
+    const { getDb, queryOne } = require('../backend/db/sqlite');
+    const db = await getDb();
+    const record = queryOne(db, 'SELECT code FROM user_verifications WHERE LOWER(email) = ?', [registeredEmail.toLowerCase()]);
+    if (!record || !record.code) throw new Error('Verification code not found in database');
+    verificationCode = record.code;
   });
 
   // 2b. Email Verification

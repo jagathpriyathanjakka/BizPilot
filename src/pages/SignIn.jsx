@@ -124,22 +124,7 @@ export default function SignInPage() {
             </button>
           </form>
 
-          {/* Quick Demo Credential Helper Pill */}
-          <div className="mt-4 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-center text-[11px] text-slate-400">
-            <span>Demo Account: </span>
-            <button
-              type="button"
-              onClick={() => {
-                setEmailOrMobile('owner@bizpilot.ai');
-                setPassword('Password@123');
-              }}
-              className="text-cyan-400 font-mono hover:underline font-semibold"
-            >
-              Fill Demo Login (owner@bizpilot.ai)
-            </button>
-          </div>
-
-          <div className="mt-4 pt-4 border-t border-slate-800/80 text-center text-xs text-slate-400">
+          <div className="mt-6 pt-5 border-t border-slate-800/80 text-center text-xs text-slate-400">
             <span>Don't have an account? </span>
             <Link to="/signup" className="text-cyan-400 font-semibold hover:underline">
               Create an account
