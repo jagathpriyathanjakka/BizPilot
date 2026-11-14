@@ -80,7 +80,7 @@ router.post('/seed', authMiddleware, async (req, res) => {
       for (const prod of seedProducts) {
         runSql(
           db,
-          `INSERT INTO products (id, org_id, business_id, name, barcode, sku, category, brand, purchase_price, selling_price, quantity, unit, min_stock_level, expiry_date, attributes_json, created_at, updated_at)
+          `INSERT OR REPLACE INTO products (id, org_id, business_id, name, barcode, sku, category, brand, purchase_price, selling_price, quantity, unit, min_stock_level, expiry_date, attributes_json, created_at, updated_at)
            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
           [
             prod.id,

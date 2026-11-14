@@ -231,7 +231,7 @@ function getSeedProductsForCategory(category, businessId, orgId) {
 
   const list = seeds[category] || seeds.grocery;
   return list.map((item, idx) => ({
-    id: `prod-${category}-${idx + 1}`,
+    id: `prod-${businessId}-${idx + 1}-${Math.random().toString(36).substr(2, 5)}`,
     org_id: orgId,
     business_id: businessId,
     name: item.name,

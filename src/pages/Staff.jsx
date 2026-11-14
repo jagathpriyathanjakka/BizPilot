@@ -1,0 +1,143 @@
+import React, { useState, useEffect } from 'react';
+import { UserCheck, Plus, Shield, Award } from 'lucide-react';
+import { api } from '../api';
+
+export default function StaffPage({ business }) {
+  const [staff, setStaff] = useState([]);
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [name, setName] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [role, setRole] = useState('Cashier');
+  const [salary, setSalary] = useState('20000');
+
+  const loadStaff = async () => {
+    try {
+      const res = await api.getStaff(business?.id);
+      setStaff(res.staff || []);
+    } catch (err) {
+      console.error('Failed to load staff:', err);
+    }
+  };
+
+  useEffect(() => {
+    loadStaff();
+  }, [business?.id]);
+
+  const handleAdd = async (e) => {
+    e.preventDefault();
+    if (!name) return;
+    try {
+      await api.createStaff({
+        businessId: business?.id,
+        name,
+        mobile,
+        role,
+        salary: parseFloat(salary) || 0,
+      });
+      setName('');
+      setMobile('');
+      setShowAddModal(false);
+      loadStaff();
+    } catch (err) {
+      alert(`Add staff error: ${err.message}`);
+    }
+  };
+
+  const currency = business?.currency === 'INR' ? '₹' : (business?.currency || '₹');
+
+  return (
+    <div className="space-y-5">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-5 rounded-3xl glass-panel border border-slate-800">
+        <div>
+          <h1 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2">
+            <UserCheck className="h-5 w-5 text-emerald-400" />
+            <span>Staff Roster & Role-Based Access Control</span>
+          </h1>
+          <p className="text-xs text-slate-400 mt-0.5">
+            Manage sales attribution, store permissions, and payroll records
+          </p>
+        </div>
+
+        <button
+          onClick={() => setShowAddModal(true)}
+          className="flex items-center gap-1.5 px-4 py-2 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-xs font-bold shadow-glow transition-all active:scale-95 w-fit"
+        >
+          <Plus className="h-4 w-4" />
+          <span>Add Staff Member</span>
+        </button>
+      </div>
+
+      <div className="p-5 rounded-3xl glass-panel border border-slate-800 overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full text-xs text-left">
+            <thead className="bg-slate-900/80 text-slate-400 border-b border-slate-800">
+              <tr>
+                <th className="p-3">Staff Member</th>
+                <th className="p-3">Role</th>
+                <th className="p-3">Mobile</th>
+                <th className="p-3">Monthly Wage</th>
+                <th className="p-3">Sales Attributed</th>
+                <th className="p-3">Status</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-slate-800/60">
+              {staff.map((s) => (
+                <tr key={s.id} className="hover:bg-slate-900/40">
+                  <td className="p-3 font-semibold text-white">{s.name}</td>
+                  <td className="p-3">
+                    <span className="px-2 py-0.5 rounded-full bg-violet-500/10 text-violet-400 border border-violet-500/20 text-[10px]">
+                      {s.role}
+                    </span>
+                  </td>
+                  <td className="p-3 text-slate-400">{s.mobile || '-'}</td>
+                  <td className="p-3 text-slate-300">{currency}{s.salary?.toLocaleString('en-IN') || 0}</td>
+                  <td className="p-3 font-semibold text-emerald-400">
+                    {currency}{s.salesTotal?.toLocaleString('en-IN') || 0} ({s.salesCount || 0} sales)
+                  </td>
+                  <td className="p-3">
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 text-[10px]">
+                      {s.status}
+                    </span>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      {showAddModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+          <form onSubmit={handleAdd} className="glass-panel w-full max-w-sm rounded-3xl p-5 border border-slate-800 bg-[#070B14] space-y-3 text-xs">
+            <h3 className="font-bold text-white text-sm">Add Staff Member</h3>
+            <div>
+              <label className="text-slate-400 block mb-1">Name *</label>
+              <input required type="text" value={name} onChange={(e) => setName(e.target.value)} className="w-full p-2 rounded-xl bg-slate-900 border border-slate-800 text-white" />
+            </div>
+            <div>
+              <label className="text-slate-400 block mb-1">Mobile</label>
+              <input type="tel" value={mobile} onChange={(e) => setMobile(e.target.value)} className="w-full p-2 rounded-xl bg-slate-900 border border-slate-800 text-white" />
+            </div>
+            <div>
+              <label className="text-slate-400 block mb-1">Role</label>
+              <select value={role} onChange={(e) => setRole(e.target.value)} className="w-full p-2 rounded-xl bg-slate-900 border border-slate-800 text-white">
+                <option value="Cashier">Cashier</option>
+                <option value="Manager">Manager</option>
+                <option value="Technician">Technician / Stylist</option>
+                <option value="Inventory Clerk">Inventory Clerk</option>
+              </select>
+            </div>
+            <div>
+              <label className="text-slate-400 block mb-1">Monthly Salary ({currency})</label>
+              <input type="number" value={salary} onChange={(e) => setSalary(e.target.value)} className="w-full p-2 rounded-xl bg-slate-900 border border-slate-800 text-white" />
+            </div>
+            <div className="flex justify-end gap-2 pt-2">
+              <button type="button" onClick={() => setShowAddModal(false)} className="px-3 py-1.5 rounded-lg border border-slate-800 text-slate-300">Cancel</button>
+              <button type="submit" className="px-4 py-1.5 rounded-lg bg-violet-600 text-white font-bold">Save</button>
+            </div>
+          </form>
+        </div>
+      )}
+    </div>
+  );
+}
