@@ -67,7 +67,7 @@ export default function WelcomePage() {
 
           <div className="pt-4 flex flex-wrap items-center justify-center gap-3">
             <Link
-              to="/"
+              to="/signin"
               className="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 hover:opacity-95 text-white font-bold text-sm shadow-glow transition-all active:scale-95 flex items-center gap-2"
             >
               <span>Explore Live Workspace Demo</span>

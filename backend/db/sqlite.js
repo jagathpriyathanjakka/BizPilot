@@ -22,6 +22,8 @@ async function getDb() {
   if (fs.existsSync(DB_PATH)) {
     const fileBuffer = fs.readFileSync(DB_PATH);
     db = new SQL.Database(fileBuffer);
+    initSchema(db);
+    saveDb();
   } else {
     db = new SQL.Database();
     initSchema(db);
@@ -49,6 +51,14 @@ function initSchema(database) {
       full_name TEXT,
       mobile TEXT,
       role TEXT,
+      created_at TEXT
+    );
+
+    CREATE TABLE IF NOT EXISTS user_verifications (
+      email TEXT PRIMARY KEY,
+      code TEXT,
+      is_verified INTEGER DEFAULT 0,
+      expires_at TEXT,
       created_at TEXT
     );
 
@@ -307,6 +317,11 @@ function seedDefaultData(database) {
       'owner',
       now,
     ]
+  );
+
+  database.run(
+    `INSERT OR REPLACE INTO user_verifications VALUES (?, ?, ?, ?, ?)`,
+    ['owner@bizpilot.ai', '123456', 1, '2099-01-01T00:00:00.000Z', now]
   );
 
   // 2. Seed Organization

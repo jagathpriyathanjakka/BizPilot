@@ -10,6 +10,7 @@ import NewProductModal from './components/NewProductModal';
 import WelcomePage from './pages/Welcome';
 import SignInPage from './pages/SignIn';
 import SignUpPage from './pages/SignUp';
+import VerifyEmailPage from './pages/VerifyEmail';
 import OnboardingPage from './pages/Onboarding';
 import DashboardPage from './pages/Dashboard';
 import ProductsPage from './pages/Products';
@@ -42,9 +43,16 @@ export default function App() {
   const [isAIModalOpen, setIsAIModalOpen] = useState(false);
   const [isAddProductOpen, setIsAddProductOpen] = useState(false);
 
-  const isAuthPage = ['/welcome', '/signin', '/signup', '/onboarding'].includes(location.pathname);
+  const token = getToken();
+  const authRoutes = ['/welcome', '/signin', '/signup', '/verify-email'];
+  const isAuthPage = authRoutes.includes(location.pathname);
 
   const loadInitialData = async () => {
+    if (!token) {
+      setLoading(false);
+      return;
+    }
+
     try {
       const meRes = await api.getMe();
       if (meRes.business) {
@@ -53,7 +61,6 @@ export default function App() {
       const bizRes = await api.getBusinesses();
       setAllBusinesses(bizRes.businesses || []);
 
-      // If business loaded, fetch supplementary data for modals
       const activeId = meRes.business?.id;
       if (activeId) {
         const [prodRes, custRes, apprRes] = await Promise.all([
@@ -66,7 +73,9 @@ export default function App() {
         setPendingApprovalsCount(apprRes.approvals?.length || 0);
       }
     } catch (err) {
-      console.warn('Initial session check:', err.message);
+      console.warn('Session check:', err.message);
+      // Token invalid or expired - clear token
+      localStorage.removeItem('bizpilot_token');
     } finally {
       setLoading(false);
     }
@@ -74,7 +83,7 @@ export default function App() {
 
   useEffect(() => {
     loadInitialData();
-  }, [location.pathname]);
+  }, [location.pathname, token]);
 
   const handleBusinessSwitch = async (bId) => {
     try {
@@ -86,14 +95,30 @@ export default function App() {
     }
   };
 
+  // If user is on an unauthenticated page
   if (isAuthPage) {
     return (
       <Routes>
         <Route path="/welcome" element={<WelcomePage />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/signup" element={<SignUpPage />} />
-        <Route path="/onboarding" element={<OnboardingPage />} />
+        <Route path="/verify-email" element={<VerifyEmailPage />} />
         <Route path="*" element={<Navigate to="/welcome" replace />} />
+      </Routes>
+    );
+  }
+
+  // If user is not authenticated and trying to access any protected route
+  if (!token) {
+    return <Navigate to="/signin" replace />;
+  }
+
+  // Onboarding wizard route
+  if (location.pathname === '/onboarding') {
+    return (
+      <Routes>
+        <Route path="/onboarding" element={<OnboardingPage />} />
+        <Route path="*" element={<Navigate to="/onboarding" replace />} />
       </Routes>
     );
   }

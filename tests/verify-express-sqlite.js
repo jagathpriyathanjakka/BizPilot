@@ -10,17 +10,23 @@ function dispatch(options) {
     const rawUrl = options.url || '/';
     const [pathOnly, queryString] = rawUrl.split('?');
     
+    const normalizedHeaders = {
+      'content-type': 'application/json',
+      'content-length': String(Buffer.byteLength(bodyStr)),
+    };
+    if (options.headers) {
+      for (const [k, v] of Object.entries(options.headers)) {
+        normalizedHeaders[k.toLowerCase()] = v;
+      }
+    }
+
     Object.assign(req, {
       method: options.method || 'GET',
       url: rawUrl,
       originalUrl: rawUrl,
       path: pathOnly,
       query: {},
-      headers: {
-        'content-type': 'application/json',
-        'content-length': String(Buffer.byteLength(bodyStr)),
-        ...(options.headers || {}),
-      },
+      headers: normalizedHeaders,
     });
 
     if (queryString) {
@@ -102,15 +108,17 @@ async function runTests() {
     if (data.status !== 'healthy') throw new Error('Status not healthy');
   });
 
-  // 2. User Sign Up
-  await testStep('2. Owner Sign Up (/api/auth/signup)', async () => {
-    const email = `testowner_${Date.now()}@bizpilot.ai`;
+  // 2. User Sign Up & Email Verification
+  let registeredEmail = '';
+  let verificationCode = '';
+  await testStep('2. Owner Sign Up & Code Generation (/api/auth/signup)', async () => {
+    registeredEmail = `testowner_${Date.now()}@bizpilot.ai`;
     const res = await dispatch({
       method: 'POST',
       url: '/api/auth/signup',
       body: {
         fullName: 'Aarav Singhania',
-        email,
+        email: registeredEmail,
         mobile: '+91 99887 76655',
         password: 'Password@123',
       },
@@ -120,24 +128,58 @@ async function runTests() {
       throw new Error(JSON.stringify(err));
     }
     const data = await res.json();
-    if (!data.token) throw new Error('Token not returned');
+    if (!data.requiresVerification) throw new Error('requiresVerification should be true');
+    if (!data.demoCode) throw new Error('Verification code not generated');
+    verificationCode = data.demoCode;
+  });
+
+  // 2b. Email Verification
+  await testStep('2b. Email 6-Digit Code Verification (/api/auth/verify)', async () => {
+    const res = await dispatch({
+      method: 'POST',
+      url: '/api/auth/verify',
+      body: {
+        email: registeredEmail,
+        code: verificationCode,
+      },
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(JSON.stringify(err));
+    }
+    const data = await res.json();
+    if (!data.token) throw new Error('JWT token not returned on verification');
     authToken = data.token;
   });
 
-  // 3. User Sign In
-  await testStep('3. User Sign In (/api/auth/signin)', async () => {
+  // 2c. Unauthenticated Protection Check (No auto-login)
+  await testStep('2c. Unauthenticated Request Blocked (/api/auth/me -> 401)', async () => {
+    const res = await dispatch({
+      url: '/api/auth/me',
+      headers: {}, // No token provided!
+    });
+    if (res.status !== 401) {
+      throw new Error(`Expected 401 Unauthorized without token, got HTTP ${res.status}`);
+    }
+  });
+
+  // 3. User Sign In with Email & Password
+  await testStep('3. User Sign In with Email & Password (/api/auth/signin)', async () => {
     const res = await dispatch({
       method: 'POST',
       url: '/api/auth/signin',
       body: {
-        emailOrMobile: 'owner@bizpilot.ai',
+        emailOrMobile: registeredEmail,
         password: 'Password@123',
       },
     });
-    if (res.ok) {
-      const data = await res.json();
-      if (data.token) authToken = data.token;
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(JSON.stringify(err));
     }
+    const data = await res.json();
+    if (!data.token) throw new Error('Token not returned on sign in');
+    authToken = data.token;
   });
 
   // 4. Onboarding 6-Step Wizard

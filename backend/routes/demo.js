@@ -23,15 +23,17 @@ router.post('/seed', authMiddleware, async (req, res) => {
     const meta = CATEGORIES_META[category];
     const now = new Date().toISOString();
 
-    // Check if business already exists for this org and category
+    const cleanOrg = String(orgId).replace(/[^a-zA-Z0-9]/g, '');
+    const businessId = `biz-${category}-${cleanOrg}`;
+
+    // Check if business already exists for this org and category or ID
     let business = queryOne(
       db,
-      'SELECT * FROM business_profiles WHERE org_id = ? AND category = ?',
-      [orgId, category]
+      'SELECT * FROM business_profiles WHERE (org_id = ? AND category = ?) OR id = ?',
+      [orgId, category, businessId]
     );
 
     if (!business) {
-      const businessId = `biz-${category}-demo`;
       const operations = {
         sellsProducts: meta.features.inventory,
         providesServices: meta.features.appointments || category === 'salon' || category === 'laundry' || category === 'travel',
@@ -47,7 +49,7 @@ router.post('/seed', authMiddleware, async (req, res) => {
 
       runSql(
         db,
-        `INSERT INTO business_profiles (
+        `INSERT OR REPLACE INTO business_profiles (
           id, org_id, name, owner_name, category, business_type, mobile, email,
           address, country, state, city, pincode, gstin, currency, timezone,
           operations_json, onboarding_complete, created_at
@@ -107,7 +109,7 @@ router.post('/seed', authMiddleware, async (req, res) => {
       // Seed 2 Customers
       runSql(
         db,
-        `INSERT INTO customers (id, org_id, business_id, name, mobile, email, address, gst_number, total_spent, outstanding_balance, notes, created_at)
+        `INSERT OR REPLACE INTO customers (id, org_id, business_id, name, mobile, email, address, gst_number, total_spent, outstanding_balance, notes, created_at)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           `cust-${businessId}-1`,
@@ -126,7 +128,7 @@ router.post('/seed', authMiddleware, async (req, res) => {
       );
       runSql(
         db,
-        `INSERT INTO customers (id, org_id, business_id, name, mobile, email, address, gst_number, total_spent, outstanding_balance, notes, created_at)
+        `INSERT OR REPLACE INTO customers (id, org_id, business_id, name, mobile, email, address, gst_number, total_spent, outstanding_balance, notes, created_at)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           `cust-${businessId}-2`,
@@ -147,7 +149,7 @@ router.post('/seed', authMiddleware, async (req, res) => {
       // Seed 1 Supplier
       runSql(
         db,
-        `INSERT INTO suppliers (id, org_id, business_id, name, company_name, mobile, email, gstin, payment_terms, balance_owed, rating, created_at)
+        `INSERT OR REPLACE INTO suppliers (id, org_id, business_id, name, company_name, mobile, email, gstin, payment_terms, balance_owed, rating, created_at)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           `sup-${businessId}-1`,
@@ -168,7 +170,7 @@ router.post('/seed', authMiddleware, async (req, res) => {
       // Seed 1 Staff Member
       runSql(
         db,
-        `INSERT INTO staff (id, org_id, business_id, name, mobile, email, role, salary, joining_date, status, sales_count, sales_total, permissions_json, created_at)
+        `INSERT OR REPLACE INTO staff (id, org_id, business_id, name, mobile, email, role, salary, joining_date, status, sales_count, sales_total, permissions_json, created_at)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           `stf-${businessId}-1`,
@@ -195,7 +197,7 @@ router.post('/seed', authMiddleware, async (req, res) => {
       const cogs = firstProd.purchase_price * 2;
       runSql(
         db,
-        `INSERT INTO sales (id, org_id, business_id, invoice_number, customer_id, customer_name, customer_mobile, items_json, subtotal, discount_amount, tax_amount, total_amount, cost_of_goods_sold, gross_profit, payment_method, payment_status, amount_received, staff_name, notes, created_at)
+        `INSERT OR REPLACE INTO sales (id, org_id, business_id, invoice_number, customer_id, customer_name, customer_mobile, items_json, subtotal, discount_amount, tax_amount, total_amount, cost_of_goods_sold, gross_profit, payment_method, payment_status, amount_received, staff_name, notes, created_at)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           `sal-${businessId}-1`,
@@ -224,7 +226,7 @@ router.post('/seed', authMiddleware, async (req, res) => {
       // Seed 1 Expense
       runSql(
         db,
-        `INSERT INTO expenses (id, org_id, business_id, category, description, amount, payment_method, paid_to, recorded_by, date, created_at)
+        `INSERT OR REPLACE INTO expenses (id, org_id, business_id, category, description, amount, payment_method, paid_to, recorded_by, date, created_at)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           `exp-${businessId}-1`,
@@ -245,7 +247,7 @@ router.post('/seed', authMiddleware, async (req, res) => {
       if (meta.features.orders) {
         runSql(
           db,
-          `INSERT INTO orders (id, org_id, business_id, order_number, order_type, customer_name, customer_mobile, table_number, status, items_json, total_amount, is_paid, delivery_address, delivery_time_slot, notes, created_at, updated_at)
+          `INSERT OR REPLACE INTO orders (id, org_id, business_id, order_number, order_type, customer_name, customer_mobile, table_number, status, items_json, total_amount, is_paid, delivery_address, delivery_time_slot, notes, created_at, updated_at)
            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
           [
             `ord-${businessId}-1`,
@@ -272,7 +274,7 @@ router.post('/seed', authMiddleware, async (req, res) => {
       if (meta.features.appointments) {
         runSql(
           db,
-          `INSERT INTO appointments (id, org_id, business_id, customer_name, customer_mobile, service_id, service_name, staff_id, staff_name, date, time_slot, status, price, notes, created_at)
+          `INSERT OR REPLACE INTO appointments (id, org_id, business_id, customer_name, customer_mobile, service_id, service_name, staff_id, staff_name, date, time_slot, status, price, notes, created_at)
            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
           [
             `apt-${businessId}-1`,
@@ -297,7 +299,7 @@ router.post('/seed', authMiddleware, async (req, res) => {
       if (meta.features.repairs) {
         runSql(
           db,
-          `INSERT INTO repairs (id, org_id, business_id, ticket_number, customer_name, customer_mobile, device_type, brand_model, imei_serial, issue_description, estimated_cost, final_cost, status, technician_notes, received_date, ready_date)
+          `INSERT OR REPLACE INTO repairs (id, org_id, business_id, ticket_number, customer_name, customer_mobile, device_type, brand_model, imei_serial, issue_description, estimated_cost, final_cost, status, technician_notes, received_date, ready_date)
            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
           [
             `rep-${businessId}-1`,
@@ -323,7 +325,7 @@ router.post('/seed', authMiddleware, async (req, res) => {
       // Initial task & approval
       runSql(
         db,
-        `INSERT INTO agent_tasks (id, org_id, business_id, agent_type, title, prompt, response, status, requires_approval, action_payload_json, approval_id, created_at)
+        `INSERT OR REPLACE INTO agent_tasks (id, org_id, business_id, agent_type, title, prompt, response, status, requires_approval, action_payload_json, approval_id, created_at)
          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
         [
           `tsk-${businessId}-1`,

@@ -35,6 +35,8 @@ export async function apiRequest(endpoint, options = {}) {
 export const api = {
   // Auth
   signUp: (payload) => apiRequest('/auth/signup', { method: 'POST', body: JSON.stringify(payload) }),
+  verifyEmail: (payload) => apiRequest('/auth/verify', { method: 'POST', body: JSON.stringify(payload) }),
+  resendVerificationCode: (payload) => apiRequest('/auth/resend-code', { method: 'POST', body: JSON.stringify(payload) }),
   signIn: (payload) => apiRequest('/auth/signin', { method: 'POST', body: JSON.stringify(payload) }),
   getMe: () => apiRequest('/auth/me'),
 

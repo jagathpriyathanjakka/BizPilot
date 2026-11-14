@@ -24,17 +24,9 @@ function authMiddleware(req, res, next) {
     token = req.cookies.bizpilot_token;
   }
 
-  // Fallback demo user session for instant local exploration
+  // Strictly enforce authentication - NO automatic fallback
   if (!token) {
-    req.user = {
-      userId: 'usr-demo-owner',
-      email: 'owner@bizpilot.ai',
-      fullName: 'Sunil Kumar',
-      role: 'owner',
-      orgId: 'org-demo-1',
-      activeBusinessId: 'biz-grocery-demo',
-    };
-    return next();
+    return res.status(401).json({ error: 'Unauthorized: Authentication required. Please sign in.' });
   }
 
   const session = verifyToken(token);

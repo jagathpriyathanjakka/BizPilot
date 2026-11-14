@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Sparkles, Eye, EyeOff, Lock, Mail, ArrowRight } from 'lucide-react';
+import { Sparkles, Eye, EyeOff, Lock, Mail, ArrowRight, ShieldAlert } from 'lucide-react';
 import { api, setToken } from '../api';
 
 export default function SignInPage() {
   const navigate = useNavigate();
-  const [emailOrMobile, setEmailOrMobile] = useState('owner@bizpilot.ai');
-  const [password, setPassword] = useState('Password@123');
+  const [emailOrMobile, setEmailOrMobile] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [unverifiedEmail, setUnverifiedEmail] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError('');
+    setUnverifiedEmail('');
 
     try {
       const res = await api.signIn({ emailOrMobile, password });
@@ -25,7 +27,12 @@ export default function SignInPage() {
         navigate('/onboarding');
       }
     } catch (err) {
-      setError(err.message || 'Invalid credentials');
+      if (err.message && err.message.includes('not verified')) {
+        setUnverifiedEmail(emailOrMobile);
+        setError('Your email is not yet verified. Please complete email code verification.');
+      } else {
+        setError(err.message || 'Invalid credentials');
+      }
     } finally {
       setLoading(false);
     }
@@ -45,20 +52,28 @@ export default function SignInPage() {
             </div>
             <span className="font-extrabold text-2xl tracking-tight text-white">BizPilot AI</span>
           </Link>
-          <h2 className="text-2xl font-bold text-white tracking-tight">Sign In to Your Workspace</h2>
+          <h2 className="text-2xl font-bold text-white tracking-tight">Sign In with Email & Password</h2>
           <p className="text-xs text-slate-400">One Business. Multiple AI Agents. Zero Manual Chaos.</p>
         </div>
 
         <div className="glass-panel p-6 sm:p-8 rounded-3xl border border-slate-800 shadow-2xl bg-slate-950/60 backdrop-blur-xl">
           <form onSubmit={handleSubmit} className="space-y-4 text-xs">
             {error && (
-              <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs">
-                {error}
+              <div className="p-3 rounded-xl bg-rose-500/10 border border-rose-500/20 text-rose-400 text-xs space-y-2">
+                <p>{error}</p>
+                {unverifiedEmail && (
+                  <Link
+                    to={`/verify-email?email=${encodeURIComponent(unverifiedEmail)}`}
+                    className="inline-flex items-center gap-1 font-bold text-cyan-400 hover:underline"
+                  >
+                    <span>Click here to enter verification code →</span>
+                  </Link>
+                )}
               </div>
             )}
 
             <div>
-              <label className="text-slate-300 font-semibold block mb-1.5">Email or Mobile Number</label>
+              <label className="text-slate-300 font-semibold block mb-1.5">Email Address</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
                 <input
@@ -75,9 +90,9 @@ export default function SignInPage() {
             <div>
               <div className="flex items-center justify-between mb-1.5">
                 <label className="text-slate-300 font-semibold">Password</label>
-                <a href="#forgot" onClick={(e) => { e.preventDefault(); alert('Demo password is Password@123'); }} className="text-[11px] text-cyan-400 hover:underline">
-                  Forgot?
-                </a>
+                <Link to="/verify-email" className="text-[11px] text-cyan-400 hover:underline">
+                  Verify Email?
+                </Link>
               </div>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-slate-400" />
@@ -104,12 +119,27 @@ export default function SignInPage() {
               disabled={loading}
               className="w-full mt-2 py-3 rounded-xl bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-500 hover:opacity-95 text-white font-bold text-xs tracking-wide shadow-glow transition-all active:scale-95 flex items-center justify-center gap-2"
             >
-              <span>{loading ? 'Authenticating...' : 'Sign In to Dashboard'}</span>
+              <span>{loading ? 'Authenticating...' : 'Sign In'}</span>
               <ArrowRight className="h-4 w-4" />
             </button>
           </form>
 
-          <div className="mt-6 pt-5 border-t border-slate-800/80 text-center text-xs text-slate-400">
+          {/* Quick Demo Credential Helper Pill */}
+          <div className="mt-4 p-2.5 rounded-xl bg-slate-900/60 border border-slate-800 text-center text-[11px] text-slate-400">
+            <span>Demo Account: </span>
+            <button
+              type="button"
+              onClick={() => {
+                setEmailOrMobile('owner@bizpilot.ai');
+                setPassword('Password@123');
+              }}
+              className="text-cyan-400 font-mono hover:underline font-semibold"
+            >
+              Fill Demo Login (owner@bizpilot.ai)
+            </button>
+          </div>
+
+          <div className="mt-4 pt-4 border-t border-slate-800/80 text-center text-xs text-slate-400">
             <span>Don't have an account? </span>
             <Link to="/signup" className="text-cyan-400 font-semibold hover:underline">
               Create an account
