@@ -23,8 +23,9 @@ export default function SignInPage() {
     setError('');
 
     try {
-      await api.requestCode({ email: cleanEmail, fullName: fullName.trim() });
-      navigate(`/verify-email?email=${encodeURIComponent(cleanEmail)}`);
+      const res = await api.requestCode({ email: cleanEmail, fullName: fullName.trim() });
+      const delParam = res?.deliveredToEmail ? '&delivered=1' : '&delivered=0';
+      navigate(`/verify-email?email=${encodeURIComponent(cleanEmail)}${delParam}`);
     } catch (err) {
       setError(err.message || 'Failed to dispatch verification code');
     } finally {

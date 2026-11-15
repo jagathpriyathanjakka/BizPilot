@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams, Link } from 'react-router-dom';
-import { Mail, CheckCircle, ArrowRight, RefreshCw, ShieldAlert, ShieldCheck } from 'lucide-react';
+import { Mail, CheckCircle, ArrowRight, RefreshCw, ShieldAlert, ShieldCheck, AlertTriangle } from 'lucide-react';
 import { api, setToken } from '../api';
 
 export default function VerifyEmailPage() {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const emailFromUrl = searchParams.get('email') || '';
+  const deliveredFromUrl = searchParams.get('delivered');
 
   const [email, setEmail] = useState(emailFromUrl);
   const [code, setCode] = useState('');
+  const [isDelivered, setIsDelivered] = useState(deliveredFromUrl === null || deliveredFromUrl === '1');
   const [loading, setLoading] = useState(false);
   const [resending, setResending] = useState(false);
   const [cooldown, setCooldown] = useState(0);
@@ -78,6 +80,9 @@ export default function VerifyEmailPage() {
     try {
       const res = await api.resendVerificationCode({ email: cleanEmail });
       setSuccessMsg(res.message || 'A fresh confirmation code has been dispatched to your email.');
+      if (typeof res?.deliveredToEmail === 'boolean') {
+        setIsDelivered(res.deliveredToEmail);
+      }
       setCooldown(30); // 30 second cooldown
     } catch (err) {
       setError(err.message || 'Failed to resend code');
@@ -118,6 +123,21 @@ export default function VerifyEmailPage() {
             <div className="p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs flex items-center gap-2">
               <CheckCircle className="h-4 w-4 shrink-0" />
               <span>{successMsg}</span>
+            </div>
+          )}
+
+          {!isDelivered && (
+            <div className="p-3.5 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs space-y-1.5">
+              <div className="font-semibold flex items-center gap-1.5 text-amber-400">
+                <AlertTriangle className="h-4 w-4 shrink-0" />
+                <span>Live Email Delivery Inactive</span>
+              </div>
+              <p className="text-[11px] text-amber-200/80 leading-relaxed">
+                The OTP was not dispatched because <strong>GMAIL_USER</strong> and <strong>GMAIL_APP_PASSWORD</strong> are not configured in your server's <code>.env</code> file yet.
+              </p>
+              <p className="text-[11px] text-slate-300">
+                To receive emails in your Gmail inbox: Add your Gmail address and 16-character Google App Password in <code>.env</code>.
+              </p>
             </div>
           )}
 
