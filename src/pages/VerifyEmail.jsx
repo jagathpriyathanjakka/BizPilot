@@ -133,10 +133,10 @@ export default function VerifyEmailPage() {
                 <span>Live Email Delivery Inactive</span>
               </div>
               <p className="text-[11px] text-amber-200/80 leading-relaxed">
-                The OTP was not dispatched because <strong>GMAIL_USER</strong> and <strong>GMAIL_APP_PASSWORD</strong> are not configured in your server's <code>.env</code> file yet.
+                The OTP was not dispatched because <strong>GMAIL_USER</strong> and <strong>GMAIL_APP_PASSWORD</strong> are missing on this server.
               </p>
-              <p className="text-[11px] text-slate-300">
-                To receive emails in your Gmail inbox: Add your Gmail address and 16-character Google App Password in <code>.env</code>.
+              <p className="text-[11px] text-slate-300 leading-relaxed">
+                If viewing on <strong>Vercel</strong>: Go to your <em>Vercel Dashboard &rarr; Project Settings &rarr; Environment Variables</em>, add <code>GMAIL_USER</code> and <code>GMAIL_APP_PASSWORD</code>, then click <em>Redeploy</em>.
               </p>
             </div>
           )}
