@@ -8,6 +8,10 @@ const nodemailer = require('nodemailer');
  * 3. Standard Custom SMTP (SMTP_HOST + SMTP_USER + SMTP_PASS)
  */
 function getEmailConfig() {
+  if (process.env.NODE_ENV === 'test') {
+    return null;
+  }
+
   const gmailUser = (process.env.GMAIL_USER || process.env.EMAIL_USER || '').trim();
   const gmailPass = (process.env.GMAIL_APP_PASSWORD || process.env.GMAIL_PASS || process.env.EMAIL_PASS || '').replace(/\s+/g, '');
 

@@ -1,3 +1,4 @@
+process.env.NODE_ENV = 'test';
 const { app } = require('../backend/server');
 const { Readable } = require('stream');
 
