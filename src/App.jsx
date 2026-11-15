@@ -204,7 +204,7 @@ export default function App() {
         onClose={() => setIsQuickPOSOpen(false)}
         products={products}
         customers={customers}
-        businessId={currentBusiness?.id || 'biz-grocery-demo'}
+        businessId={currentBusiness?.id || ''}
         currency={currentBusiness?.currency === 'INR' ? '₹' : (currentBusiness?.currency || '₹')}
         onSaleCreated={() => loadInitialData()}
       />
@@ -212,7 +212,7 @@ export default function App() {
       <AICommandModal
         isOpen={isAIModalOpen}
         onClose={() => setIsAIModalOpen(false)}
-        businessId={currentBusiness?.id || 'biz-grocery-demo'}
+        businessId={currentBusiness?.id || ''}
         categoryKey={currentBusiness?.category || 'grocery'}
         onActionApproved={() => loadInitialData()}
       />
@@ -220,7 +220,7 @@ export default function App() {
       <NewProductModal
         isOpen={isAddProductOpen}
         onClose={() => setIsAddProductOpen(false)}
-        businessId={currentBusiness?.id || 'biz-grocery-demo'}
+        businessId={currentBusiness?.id || ''}
         currency={currentBusiness?.currency === 'INR' ? '₹' : (currentBusiness?.currency || '₹')}
         onProductCreated={() => loadInitialData()}
       />

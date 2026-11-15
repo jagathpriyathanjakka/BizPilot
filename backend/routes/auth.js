@@ -1,4 +1,5 @@
 const express = require('express');
+const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const { getDb, queryOne, runSql } = require('../db/sqlite');
 const { createToken, authMiddleware } = require('../middleware/auth');
@@ -7,9 +8,9 @@ const { sendVerificationEmail } = require('../utils/mailer');
 
 const router = express.Router();
 
-// Helper to generate a 6-digit verification code
+// Cryptographically secure 6-digit verification code
 function generateVerificationCode() {
-  return Math.floor(100000 + Math.random() * 900000).toString();
+  return crypto.randomInt(100000, 1000000).toString();
 }
 
 // POST /api/auth/google - One-click Continue with Google / Gmail (No password needed!)
@@ -105,7 +106,7 @@ router.post('/google', async (req, res) => {
   }
 });
 
-// POST /api/auth/request-code - Continue Manually with Email (Passwordless OTP!)
+// POST /api/auth/request-code - Continue with Email (Secure Passwordless OTP)
 router.post('/request-code', async (req, res) => {
   try {
     const { email, fullName } = req.body || {};
@@ -116,8 +117,18 @@ router.post('/request-code', async (req, res) => {
     const db = await getDb();
     const cleanEmail = String(email).toLowerCase().trim();
     const now = new Date().toISOString();
-    const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // Secure 10-minute validity
     const verificationCode = generateVerificationCode();
+
+    // Check rate limit: 30s cooldown between requests
+    const existingVerif = queryOne(db, 'SELECT created_at FROM user_verifications WHERE LOWER(email) = ?', [cleanEmail]);
+    if (existingVerif && existingVerif.created_at) {
+      const elapsed = Date.now() - new Date(existingVerif.created_at).getTime();
+      if (elapsed < 30000) {
+        const waitSec = Math.ceil((30000 - elapsed) / 1000);
+        return res.status(429).json({ error: `Please wait ${waitSec} seconds before requesting a new code.` });
+      }
+    }
 
     let user = queryOne(db, 'SELECT * FROM users WHERE LOWER(email) = ?', [cleanEmail]);
 
@@ -145,16 +156,20 @@ router.post('/request-code', async (req, res) => {
       [cleanEmail, verificationCode, expiresAt, now]
     );
 
+    let deliveryResult = { success: false, isRealDelivery: false };
     try {
-      await sendVerificationEmail({ to: cleanEmail, code: verificationCode, name: fullName });
+      deliveryResult = await sendVerificationEmail({ to: cleanEmail, code: verificationCode, name: fullName });
     } catch (mailErr) {
       console.warn('[BizPilot Mailer] Warning: email sending exception:', mailErr.message);
     }
 
     res.json({
-      message: `A 6-digit confirmation code has been dispatched to ${cleanEmail}.`,
+      message: deliveryResult.isRealDelivery
+        ? `A confidential 6-digit confirmation code has been dispatched directly to ${cleanEmail}. Please check your inbox and spam folder.`
+        : `A confidential 6-digit confirmation code has been dispatched to ${cleanEmail}.`,
       email: cleanEmail,
       requiresVerification: true,
+      deliveredToEmail: deliveryResult.isRealDelivery,
     });
   } catch (err) {
     console.error('Request code error:', err);
@@ -179,7 +194,7 @@ router.post('/signup', validate(signUpSchema), async (req, res) => {
     const orgId = 'org-' + Date.now().toString(36) + Math.random().toString(36).substr(2, 4);
     const passwordHash = password ? await bcrypt.hash(password, 10) : 'PASSWORDLESS_ACCOUNT';
     const now = new Date().toISOString();
-    const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString(); // 24 hours
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // 10 minutes expiry
     const verificationCode = generateVerificationCode();
 
     // Insert user
@@ -211,16 +226,20 @@ router.post('/signup', validate(signUpSchema), async (req, res) => {
     );
 
     // Send verification email safely
+    let deliveryResult = { success: false, isRealDelivery: false };
     try {
-      await sendVerificationEmail({ to: cleanEmail, code: verificationCode, name: fullName });
+      deliveryResult = await sendVerificationEmail({ to: cleanEmail, code: verificationCode, name: fullName });
     } catch (mailErr) {
       console.warn('[BizPilot Mailer] Warning: email delivery exception:', mailErr.message);
     }
 
     res.status(201).json({
-      message: 'Account created. We have dispatched a 6-digit confirmation code to your email address.',
+      message: deliveryResult.isRealDelivery
+        ? `Account created. We have dispatched a 6-digit confirmation code directly to ${cleanEmail}.`
+        : `Account created. A 6-digit confirmation code has been dispatched to ${cleanEmail}.`,
       email: cleanEmail,
       requiresVerification: true,
+      deliveredToEmail: deliveryResult.isRealDelivery,
     });
   } catch (err) {
     console.error('Signup error:', err);
@@ -238,24 +257,31 @@ router.post('/verify', async (req, res) => {
 
     const db = await getDb();
     const cleanEmail = String(email).toLowerCase().trim();
+    const cleanCode = String(code).trim();
     const record = queryOne(
       db,
       'SELECT * FROM user_verifications WHERE LOWER(email) = ?',
       [cleanEmail]
     );
 
-    if (!record) {
-      return res.status(404).json({ error: 'No verification record found for this email. Please sign up or click Resend Code.' });
+    if (!record || !record.code) {
+      return res.status(400).json({ error: 'No active verification code found for this email. Please request a new code.' });
     }
 
-    if (record.code !== String(code).trim()) {
-      return res.status(400).json({ error: 'Invalid 6-digit verification code. Please check and try again.' });
+    // Check expiration (10 minutes)
+    if (new Date() > new Date(record.expires_at)) {
+      runSql(db, 'UPDATE user_verifications SET code = NULL WHERE LOWER(email) = ?', [cleanEmail]);
+      return res.status(400).json({ error: 'This verification code has expired (valid for 10 minutes). Please request a new code.' });
     }
 
-    // Mark as verified
+    if (record.code !== cleanCode) {
+      return res.status(400).json({ error: 'Invalid 6-digit verification code. Please check your email and try again.' });
+    }
+
+    // Mark as verified and WIPE code immediately so it can NEVER be reused (Single-Use OTP)
     runSql(
       db,
-      'UPDATE user_verifications SET is_verified = 1 WHERE LOWER(email) = ?',
+      'UPDATE user_verifications SET is_verified = 1, code = NULL WHERE LOWER(email) = ?',
       [cleanEmail]
     );
 
@@ -319,14 +345,41 @@ router.post('/resend-code', async (req, res) => {
 
     const db = await getDb();
     const cleanEmail = String(email).toLowerCase().trim();
-    const user = queryOne(db, 'SELECT * FROM users WHERE LOWER(email) = ?', [cleanEmail]);
+    let user = queryOne(db, 'SELECT * FROM users WHERE LOWER(email) = ?', [cleanEmail]);
     if (!user) {
-      return res.status(404).json({ error: `No registered account found for "${cleanEmail}". Please create an account on Sign Up first.` });
+      const userId = 'usr-' + Date.now().toString(36) + Math.random().toString(36).substr(2, 4);
+      const orgId = 'org-' + Date.now().toString(36) + Math.random().toString(36).substr(2, 4);
+      const name = cleanEmail.split('@')[0] || 'Business Owner';
+      const now = new Date().toISOString();
+
+      runSql(
+        db,
+        'INSERT INTO users (id, email, password_hash, full_name, mobile, role, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        [userId, cleanEmail, 'PASSWORDLESS_ACCOUNT', name, '', 'owner', now]
+      );
+
+      runSql(
+        db,
+        'INSERT INTO organizations (id, name, owner_id, currency, country, active_business_id, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)',
+        [orgId, `${name}'s Business Group`, userId, 'INR', 'India', null, now]
+      );
+
+      user = queryOne(db, 'SELECT * FROM users WHERE id = ?', [userId]);
+    }
+
+    // Rate limiting: 30-second cooldown
+    const existingVerif = queryOne(db, 'SELECT created_at FROM user_verifications WHERE LOWER(email) = ?', [cleanEmail]);
+    if (existingVerif && existingVerif.created_at) {
+      const elapsed = Date.now() - new Date(existingVerif.created_at).getTime();
+      if (elapsed < 30000) {
+        const waitSec = Math.ceil((30000 - elapsed) / 1000);
+        return res.status(429).json({ error: `Please wait ${waitSec} seconds before requesting a new code.` });
+      }
     }
 
     const newCode = generateVerificationCode();
     const now = new Date().toISOString();
-    const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+    const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // 10 minutes
 
     runSql(
       db,
@@ -334,12 +387,19 @@ router.post('/resend-code', async (req, res) => {
       [cleanEmail, newCode, expiresAt, now]
     );
 
-    // Send original verification email
-    await sendVerificationEmail({ to: cleanEmail, code: newCode, name: user.full_name });
+    let deliveryResult = { success: false, isRealDelivery: false };
+    try {
+      deliveryResult = await sendVerificationEmail({ to: cleanEmail, code: newCode, name: user ? user.full_name : '' });
+    } catch (mailErr) {
+      console.warn('[BizPilot Mailer] Warning: resend exception:', mailErr.message);
+    }
 
     res.json({
-      message: `A new 6-digit confirmation code has been dispatched to ${cleanEmail}. Please check your inbox.`,
+      message: deliveryResult.isRealDelivery
+        ? `A fresh 6-digit confirmation code has been dispatched to ${cleanEmail}. Please check your inbox and spam folder.`
+        : `A fresh 6-digit confirmation code has been dispatched to ${cleanEmail}.`,
       email: cleanEmail,
+      deliveredToEmail: deliveryResult.isRealDelivery,
     });
   } catch (err) {
     console.error('Resend code error:', err);
@@ -366,20 +426,24 @@ router.post('/signin', validate(signInSchema), async (req, res) => {
 
     if (!password || user.password_hash === 'PASSWORDLESS_ACCOUNT' || user.password_hash === 'GOOGLE_OAUTH_ACCOUNT') {
       const newCode = generateVerificationCode();
-      const expiresAt = new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+      const expiresAt = new Date(Date.now() + 10 * 60 * 1000).toISOString(); // 10 minutes
       runSql(
         db,
         'INSERT OR REPLACE INTO user_verifications (email, code, is_verified, expires_at, created_at) VALUES (?, ?, 0, ?, ?)',
         [user.email.toLowerCase(), newCode, expiresAt, new Date().toISOString()]
       );
+      let deliveryResult = { success: false, isRealDelivery: false };
       try {
-        await sendVerificationEmail({ to: user.email, code: newCode, name: user.full_name });
+        deliveryResult = await sendVerificationEmail({ to: user.email, code: newCode, name: user.full_name });
       } catch (e) {}
 
       return res.status(200).json({
-        message: 'A 6-digit confirmation code has been dispatched to your email.',
+        message: deliveryResult.isRealDelivery
+          ? `A 6-digit confirmation code has been dispatched to your email (${user.email}).`
+          : `A 6-digit confirmation code has been dispatched to ${user.email}.`,
         requiresVerification: true,
         email: user.email,
+        deliveredToEmail: deliveryResult.isRealDelivery,
       });
     }
 
@@ -395,7 +459,7 @@ router.post('/signin', validate(signInSchema), async (req, res) => {
       [user.email.toLowerCase()]
     );
 
-    if (verification && verification.is_verified === 0 && user.email !== 'owner@bizpilot.ai') {
+    if (verification && verification.is_verified === 0) {
       return res.status(403).json({
         error: 'Your email is not verified yet. Please enter the 6-digit verification code sent to your email.',
         requiresVerification: true,

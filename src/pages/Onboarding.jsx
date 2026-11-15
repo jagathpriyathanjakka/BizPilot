@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   Sparkles,
@@ -20,24 +20,44 @@ export default function OnboardingPage() {
   const [step, setStep] = useState(1);
   const [loading, setLoading] = useState(false);
 
-  // Form State
+  // Form State - 100% Original User Information
   const [businessInfo, setBusinessInfo] = useState({
-    name: 'Om Enterprises Supermarket',
-    ownerName: 'Sunil Kumar',
-    mobile: '+91 98765 43210',
-    email: 'owner@bizpilot.ai',
-    address: 'Shop 14, Commercial Plaza, M.G. Road',
+    name: '',
+    ownerName: '',
+    mobile: '',
+    email: '',
+    address: '',
     country: 'India',
-    state: 'Maharashtra',
-    city: 'Mumbai',
-    pincode: '400001',
-    gstin: '27AAAAA0000A1Z5',
+    state: '',
+    city: '',
+    pincode: '',
+    gstin: '',
     currency: 'INR',
     timezone: 'Asia/Kolkata',
   });
 
+  // Preload authenticated user's real name and email
+  useEffect(() => {
+    async function loadCurrentUser() {
+      try {
+        const res = await api.getMe();
+        if (res && res.user) {
+          setBusinessInfo((prev) => ({
+            ...prev,
+            ownerName: res.user.fullName || prev.ownerName,
+            email: res.user.email || prev.email,
+            mobile: res.user.mobile || prev.mobile,
+          }));
+        }
+      } catch (err) {
+        // User session will be verified upon onboarding submit
+      }
+    }
+    loadCurrentUser();
+  }, []);
+
   const [selectedCategory, setSelectedCategory] = useState('grocery');
-  const [selectedType, setSelectedType] = useState('Supermarket');
+  const [selectedType, setSelectedType] = useState('General Grocery');
   const [operations, setOperations] = useState({
     sellsProducts: true,
     providesServices: false,
@@ -48,9 +68,9 @@ export default function OnboardingPage() {
     acceptsUpi: true,
     acceptsCards: true,
     acceptsBankTransfer: true,
-    offersDelivery: true,
+    offersDelivery: false,
   });
-  const [seedDemo, setSeedDemo] = useState(true);
+  const [seedDemo, setSeedDemo] = useState(false);
 
   const categoriesList = Object.values(BUSINESS_CATEGORIES);
   const currentCategoryDef = BUSINESS_CATEGORIES[selectedCategory] || BUSINESS_CATEGORIES.grocery;
@@ -125,63 +145,72 @@ export default function OnboardingPage() {
                   <label className="text-slate-300 font-semibold block mb-1">Business Name *</label>
                   <input
                     type="text"
+                    required
+                    placeholder="e.g. Apex Enterprises or Metro Cafe"
                     value={businessInfo.name}
                     onChange={(e) => setBusinessInfo({ ...businessInfo, name: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-violet-500"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 font-semibold block mb-1">Owner Name *</label>
+                  <label className="text-slate-300 font-semibold block mb-1">Owner / Proprietor Name *</label>
                   <input
                     type="text"
+                    required
+                    placeholder="Your Full Name"
                     value={businessInfo.ownerName}
                     onChange={(e) => setBusinessInfo({ ...businessInfo, ownerName: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-violet-500"
                   />
                 </div>
                 <div>
-                  <label className="text-slate-300 font-semibold block mb-1">Business Mobile *</label>
+                  <label className="text-slate-300 font-semibold block mb-1">Business Mobile Number</label>
                   <input
-                    type="text"
+                    type="tel"
+                    placeholder="e.g. +91 98765 43210"
                     value={businessInfo.mobile}
                     onChange={(e) => setBusinessInfo({ ...businessInfo, mobile: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-violet-500"
                   />
                 </div>
                 <div>
                   <label className="text-slate-300 font-semibold block mb-1">Business Email</label>
                   <input
                     type="email"
+                    placeholder="contact@business.com"
                     value={businessInfo.email}
                     onChange={(e) => setBusinessInfo({ ...businessInfo, email: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-violet-500"
                   />
                 </div>
                 <div className="sm:col-span-2">
                   <label className="text-slate-300 font-semibold block mb-1">Business Address</label>
                   <input
                     type="text"
+                    placeholder="Shop/Office number, building, street, area"
                     value={businessInfo.address}
                     onChange={(e) => setBusinessInfo({ ...businessInfo, address: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-violet-500"
                   />
                 </div>
                 <div>
                   <label className="text-slate-300 font-semibold block mb-1">City</label>
                   <input
                     type="text"
+                    placeholder="e.g. Mumbai, Bengaluru, Delhi"
                     value={businessInfo.city}
                     onChange={(e) => setBusinessInfo({ ...businessInfo, city: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-violet-500"
                   />
                 </div>
                 <div>
                   <label className="text-slate-300 font-semibold block mb-1">GSTIN (Optional)</label>
                   <input
                     type="text"
+                    placeholder="e.g. 27ABCDE1234F1Z5 (Optional)"
                     value={businessInfo.gstin}
                     onChange={(e) => setBusinessInfo({ ...businessInfo, gstin: e.target.value })}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white"
+                    className="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-white placeholder-slate-600 focus:outline-none focus:border-violet-500"
                   />
                 </div>
               </div>

@@ -192,7 +192,7 @@ export const Navbar = ({
                     {currentBusiness?.ownerName || 'Business Owner'}
                   </p>
                   <p className="text-[11px] text-slate-400 truncate">
-                    {currentBusiness?.email || 'owner@bizpilot.ai'}
+                    {currentBusiness?.email || 'Owner Account'}
                   </p>
                 </div>
                 <div className="py-1">
